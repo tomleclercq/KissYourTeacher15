@@ -4,9 +4,11 @@ using System.Collections;
 public class Trap : MonoBehaviour {
 
 	public ToolIndex requiredTool;
-	public GameObject cluePrefab;
+	public GameObject cluePrefab = null;
+//	public GameObject animalPrefab;
+	public GameObject book;
 
-	private GameObject clueInstance;
+	private GameObject clueInstance = null;
 
 	// Use this for initialization
 	void Start () {
@@ -19,19 +21,27 @@ public class Trap : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(other.tag == "Player"){
+		if((other.tag == "Player") && (cluePrefab != null)){
 			if(!(other.GetComponent<Player>().HasTool(requiredTool))){
 				clueInstance = Instantiate(cluePrefab, transform.position, Quaternion.identity) as GameObject;
 				clueInstance.transform.position += Vector3.down * 2;
+			}else{
+//				GetComponent<Animator>().SetTrigger("OpenCage");
+				GetComponent<SpriteRenderer>().enabled = false;
+				book.SetActive(true);
+				transform.GetChild(0).gameObject.SetActive(true);
+//				Time.timeScale = 0;
 			}
-//		   if (Input.GetMouseButtonDown(0))){
-//			other.transform.position += Vector3.forward;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
-		if (other.tag == "Player") {
-			if (clueInstance) GameObject.Destroy(clueInstance);
+		if (other.tag == "Player"){
+		    if (clueInstance != null){
+				GameObject.Destroy(clueInstance);
+			}else{
+				GetComponent<Animator>().SetTrigger("StopAnim");
+			}
 		}
 	}
 }

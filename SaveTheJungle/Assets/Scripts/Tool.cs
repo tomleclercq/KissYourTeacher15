@@ -24,7 +24,7 @@ public class Tool : MonoBehaviour {
 		this.GetComponent<SpriteRenderer> ().enabled = false;
 		clueInstance = Instantiate(cluePrefab, transform.position, Quaternion.identity) as GameObject;
 		clueInstance.transform.position += Vector3.down * 2;
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(2);
 		GameObject.Destroy(clueInstance);
 		GameObject.Destroy(this.gameObject);
 	}
