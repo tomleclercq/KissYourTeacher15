@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LitJson;
 using System.IO;
+using System;
 
 public class ApplicationScript : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class ApplicationScript : MonoBehaviour
         }
     }
 
+    public static string getDataFolder()
+    {
+        string folder = Application.dataPath + @"/../Data/";
+        if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+        return folder;
+    }
+
     public JsonData jsonLanguage;
     public Languages currentLanguage;
 
@@ -25,7 +33,7 @@ public class ApplicationScript : MonoBehaviour
 
     void Start ()
     {
-        string file = File.ReadAllText(@"D:\Users\Tom\Desktop\KissYourTeach2015\SaveTheJungle\Data\Languages.json");
+        string file = File.ReadAllText( getDataFolder()+"Languages.json");
         JsonData json = JsonMapper.ToObject(file);
         jsonLanguage = (JsonData)JsonUtil.loadJsonData<JsonData>(json, "DataPerLanguage");
 
@@ -45,9 +53,17 @@ public class ApplicationScript : MonoBehaviour
         }
     }
 
+    public void SwitchLanguage( bool more)
+    {
+        if (more )
+        currentLanguage = (int)currentLanguage < Enum.GetNames(typeof(Languages)).Length - 1 ? currentLanguage + 1 : 0; 
+        else
+            currentLanguage = (int)currentLanguage >= 1 ? (currentLanguage - 1) : (Languages)(Enum.GetNames(typeof(Languages)).Length - 1);
+    }
+
     private void UpdateTextTranslaters()
     {
-        foreach (TextTranslaterScript ts in textsRoot.GetComponentsInChildren<TextTranslaterScript>())
+        foreach (LanguageTranslaterScript ts in textsRoot.GetComponentsInChildren<LanguageTranslaterScript>())
         {
             ts.Init();
         }
