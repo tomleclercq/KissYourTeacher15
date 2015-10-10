@@ -1,0 +1,44 @@
+{
+    "Data": {
+        "levelName":"Jungle01",
+        "characterSpeed":15
+    },
+    "DataPerLanguage": [
+        {
+            "Language": 0,
+            "Data": {
+                "play": "Play",
+                "language": "English",
+                "credit": "Credits",
+                "lion": "Lion",
+                "cat": "Cat",
+                "bear": "Bear",
+                "parrot": "Parrot"
+            }
+        },
+        {
+            "Language": 1,
+            "Data": {
+                "play": "Jouer",
+                "language": "Français",
+                "credit": "Crédits",
+                "lion": "Lion",
+                "cat": "Chat",
+                "bear": "Ours",
+                "parrot": "Perroquet"
+            }
+        },
+        {
+            "Language": 2,
+            "Data": {
+                "play": "Jugar",
+                "language": "Spanish",
+                "credit": "Créditos",
+                "lion": "Léon",
+                "cat": "Gato",
+                "bear": "Oso",
+                "parrot": "Papagayo"
+            }
+        }
+    ]
+}
