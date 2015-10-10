@@ -28,7 +28,7 @@ public class LanguageTranslaterScript : MonoBehaviour
 
     private IEnumerator LoadSound()
     {
-        if (audioEmitter == null) audioEmitter = GetComponent<AudioSource>();
+        if (audioEmitter == null) audioEmitter = GetComponentInChildren<AudioSource>();
         if (audioEmitter != null)
         {
             while (audioEmitter.isPlaying)
@@ -59,12 +59,10 @@ public class LanguageTranslaterScript : MonoBehaviour
 
     public IEnumerator PlaySoundE()
     {
-        while( ApplicationScript.current.switchingLanguage )
+        while (ApplicationScript.current.switchingLanguage || !string.IsNullOrEmpty(audioEmitter.clip.name ))
             yield return null;
-
-        AudioClip clip = audioEmitter.clip;
-        print("audioEmitter.clip");
-        audioEmitter.PlayOneShot(clip);
+        Debug.Log("sound " + audioEmitter.clip.name);
+        audioEmitter.PlayOneShot(audioEmitter.clip);
     }
 
 }
