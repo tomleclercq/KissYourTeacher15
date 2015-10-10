@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Player : MonoBehaviour 
 {
@@ -10,16 +11,22 @@ public class Player : MonoBehaviour
 	
 	private Rigidbody2D rb2d;
 	private Animator anim;
+	private bool[] inventory;
 
 	void Start () 
 	{
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		anim = gameObject.GetComponent<Animator> ();
 		speed = choseSpeed;
+
+		inventory = new bool[Enum.GetValues (typeof(ToolIndex)).Length];
+		for(int i = 0; i < Enum.GetValues(typeof(ToolIndex)).Length; i++){
+			inventory[i] = false;
+		}
 	}
 	void Update ()
 	{
-		gameObject.layer = (int)(transform.position.y / 2.56f - 1);
+//		gameObject.layer = (int)(transform.position.y / 2.56f - 1);
 	}
 
 	void FixedUpdate ()
@@ -115,5 +122,13 @@ public class Player : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public bool HasTool(ToolIndex toolIndex){
+		return inventory [(int)toolIndex];
+	}
+
+	public void AddTool(ToolIndex toolIndex){
+		inventory [(int)toolIndex] = true;
 	}
 }
