@@ -10,10 +10,16 @@
                 "play": "Play",
                 "language": "English",
                 "credit": "Credits",
+                "bear":"Bear",
+                "zebra":"Zebra",
+                "orangutan":"Orangutan",
                 "lion": "Lion",
-                "cat": "Cat",
-                "bear": "Bear",
-                "parrot": "Parrot"
+                "turtle": "Turtle",
+                "crocodile": "Crocodille",
+                "snake": "Snake",
+                "parrot":"Parrot",
+                "ostrich":"Ostrich",
+                "pinguin":"Pinguin"
             }
         },
         {
@@ -22,10 +28,16 @@
                 "play": "Jouer",
                 "language": "Français",
                 "credit": "Crédits",
-                "lion": "Lion",
-                "cat": "Chat",
                 "bear": "Ours",
-                "parrot": "Perroquet"
+                "zebra": "Zèbre",
+                "orangutan": "Orang-outan",
+                "lion": "Lion",
+                "turtle":"Tortue",
+                "crocodile":"Crocodile",
+                "snake":"Serpent",
+                "parrot":"Perroquet",
+                "ostrich":"Autruche",
+                "pinguin":"Pinguin"
             }
         },
         {
@@ -34,10 +46,16 @@
                 "play": "Jugar",
                 "language": "Español",
                 "credit": "Créditos",
-                "lion": "Léon",
-                "cat": "Gato",
                 "bear": "Oso",
-                "parrot": "Papagayo"
+                "zebra": "Zebra",
+                "orangutan": "Orangutan",
+                "lion": "León",
+                "turtle":"Tortuga",
+                "crocodile":"Cocodrilo",
+                "snake":"Serpiente",
+                "parrot":"Loro",
+                "ostrich":"Avestruz",
+                "pinguin":"Pingüino"
             }
         }
     ]
