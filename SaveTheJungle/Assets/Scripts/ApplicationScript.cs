@@ -63,10 +63,11 @@ public class ApplicationScript : MonoBehaviour
 
     private void UpdateTextTranslaters()
     {
-        foreach (LanguageTranslaterScript ts in textsRoot.GetComponentsInChildren<LanguageTranslaterScript>())
-        {
-            ts.Init();
-        }
+        if (textsRoot != null )
+            foreach (LanguageTranslaterScript ts in textsRoot.GetComponentsInChildren<LanguageTranslaterScript>())
+            {
+                ts.Init();
+            }
     }
 
 }
