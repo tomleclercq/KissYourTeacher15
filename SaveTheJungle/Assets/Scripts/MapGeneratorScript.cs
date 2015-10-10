@@ -93,7 +93,7 @@ public class MapGeneratorScript : MonoBehaviour {
                                     tile = GameObject.Instantiate(grass) as GameObject;
                     }
                     position.x = x * grassTileSize.x - ((countAndSeaX / 2) * grassTileSize.x - grassTileSize.x / 2);
-                    position.y = y * grassTileSize.y - ((countAndSeaY / 2) * grassTileSize.y - grassTileSize.y / 2);
+					position.y = y * grassTileSize.y + grassTileSize.y / 2;
                     tile.transform.position = position;
                     tile.transform.SetParent(transform);
                 }

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 	public float choseSpeed = 5;
 	public int health = 3;
 	public float scale = 1;
-	
+
 	private Rigidbody2D rb2d;
 	private Animator anim;
 
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 	}
 	void Update ()
 	{
-		gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)-(transform.position.y / 1.28f - 1);
+		gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(transform.position.y / 2.56)*-2 + 199;
 	}
 
 	void FixedUpdate ()
