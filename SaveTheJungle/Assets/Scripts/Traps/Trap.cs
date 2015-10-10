@@ -40,7 +40,7 @@ public class Trap : MonoBehaviour {
 		    if (clueInstance != null){
 				GameObject.Destroy(clueInstance);
 			}else{
-				GetComponent<Animator>().SetTrigger("StopAnim");
+				//GetComponent<Animator>().SetTrigger("StopAnim");
 			}
 		}
 	}
