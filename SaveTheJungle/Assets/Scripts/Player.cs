@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 	}
 	void Update ()
 	{
-		gameObject.layer = (int)(transform.position.y / 2.56f - 1);
+		gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)-(transform.position.y / 1.28f - 1);
 	}
 
 	void FixedUpdate ()
