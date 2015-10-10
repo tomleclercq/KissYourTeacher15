@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		float h = Input.GetAxis ("Horizontal");
+		float h = Input.GetAxis ("Horizontal");    //-----Movement-----\\
 		if (Input.GetAxis ("Horizontal") != 0)
 		{
 			rb2d.velocity = new Vector2(speed * h, rb2d.velocity.y);

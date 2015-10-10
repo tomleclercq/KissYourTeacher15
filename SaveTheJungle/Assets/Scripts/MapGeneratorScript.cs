@@ -11,29 +11,41 @@ public class MapGeneratorScript : MonoBehaviour {
     Vector2 position;
     Vector2 grassTileSize;
 
-    void Start()
-    {
-        Init();
-        CreateBaseMap();
-    }
+    bool generated = false;
 
-    void Init()
+    public void Init()
     {
-        grassTileSize = grass.GetComponent<SpriteRenderer>().sprite.rect.size * 0.01f;
-    }
-
-    void CreateBaseMap()
-    {
-        for( int x= 0; x < countX ; x++ )
+        if (this.transform.childCount == 0)
         {
-            for( int y= 0; y < countY ; y++ )
+            generated = false;
+            grassTileSize = grass.GetComponent<SpriteRenderer>().sprite.rect.size * 0.01f;
+        }
+    }
+
+    public void ClearMap()
+    {
+        Transform[] childs = transform.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < childs.Length; i++)
+            if (childs[i] != transform )
+                DestroyImmediate(childs[i].gameObject);
+        generated = false;
+    }
+    public void CreateBaseMap()
+    {
+        if (!generated)
+        {
+            for (int x = 0; x < countX; x++)
             {
-                tile = GameObject.Instantiate(grass) as GameObject;
-                position.x = x * grassTileSize.x - ((countX / 2) * grassTileSize.x - grassTileSize.x/2);
-                position.y = y * grassTileSize.y - ((countY / 2) * grassTileSize.y - grassTileSize.y/2);
-                tile.transform.position = position;
-                tile.transform.SetParent(transform);
+                for (int y = 0; y < countY; y++)
+                {
+                    tile = GameObject.Instantiate(grass) as GameObject;
+                    position.x = x * grassTileSize.x - ((countX / 2) * grassTileSize.x - grassTileSize.x / 2);
+                    position.y = y * grassTileSize.y - ((countY / 2) * grassTileSize.y - grassTileSize.y / 2);
+                    tile.transform.position = position;
+                    tile.transform.SetParent(transform);
+                }
             }
+            generated = true;
         }
     }
 }
