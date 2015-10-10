@@ -64,7 +64,7 @@ public class Poacher : MonoBehaviour
 		}
 		*/
 
-		rb2d.velocity = transform.position - string.Concat ("target", nInPath);
+		//rb2d.velocity = transform.position - string.Concat ("target", nInPath);
 
 
 		AnimationPoacher ();
