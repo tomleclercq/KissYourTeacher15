@@ -19,9 +19,8 @@ public class Player : MonoBehaviour
 	}
 	void Update ()
 	{
-		gameObject.layer = transform.position.y/ 2.56f - 1;
+		gameObject.layer = (int)(transform.position.y / 2.56f - 1);
 	}
-
 
 	void FixedUpdate ()
 	{
