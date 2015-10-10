@@ -23,11 +23,11 @@ public class ApplicationScript : MonoBehaviour
         if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
         return folder;
     }
-
+    [HideInInspector]
     public bool switchingLanguage = false;
     public JsonData jsonLanguage;
     public Languages currentLanguage;
-    public GameObject textsRoot;
+    public GameObject[] textsRoot;
     private Languages previousLanguage;
 
     void Start ()
@@ -72,9 +72,10 @@ public class ApplicationScript : MonoBehaviour
     private void UpdateTextTranslaters()
     {
         if (textsRoot != null )
-        foreach (LanguageTranslaterScript ts in textsRoot.GetComponentsInChildren<LanguageTranslaterScript>())
-        {
-            ts.Init();
-        }
+        foreach (GameObject go in textsRoot)
+            foreach (LanguageTranslaterScript ts in go.GetComponentsInChildren<LanguageTranslaterScript>())
+            {
+                ts.Init();
+            }
     }
 }
