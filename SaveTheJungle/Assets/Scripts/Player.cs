@@ -3,9 +3,11 @@ using System.Collections;
 
 public class Player : MonoBehaviour 
 {
-	public float speed;
+	float speed;
+	public float choseSpeed = 5;
 	public int health = 3;
-
+	public float scale = 1;
+	
 	private Rigidbody2D rb2d;
 	private Animator anim;
 
@@ -13,72 +15,105 @@ public class Player : MonoBehaviour
 	{
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		anim = gameObject.GetComponent<Animator> ();
+		speed = choseSpeed;
 	}
-
-	void Update () 
+	void Update ()
 	{
-
+		gameObject.layer = transform.position.y/ 2.56f - 1;
 	}
+
 
 	void FixedUpdate ()
 	{
 		float h = Input.GetAxis ("Horizontal");    //-----Movement-----\\
-		if (Input.GetAxis ("Horizontal") != 0)
+		if (Input.GetAxis ("Horizontal") < -0.1f)
 		{
-			rb2d.velocity = new Vector2(speed * h, rb2d.velocity.y);
+			rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
+		}
+		else if (Input.GetAxis ("Horizontal") > 0.1f)
+		{
+			rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+		}
+		else
+		{
+			rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 		}
 		
 		float v = Input.GetAxis ("Vertical");
-		if (Input.GetAxis ("Vertical") != 0)
+		if (Input.GetAxis ("Vertical") < -0.1f)
 		{
-			rb2d.velocity = new Vector2(rb2d.velocity.x, speed * v);
+			rb2d.velocity = new Vector2(rb2d.velocity.x, -speed);
+		}
+		else if (Input.GetAxis ("Vertical") > 0.1f)
+		{
+			rb2d.velocity = new Vector2(rb2d.velocity.x, speed);
+		}
+		else
+		{
+			rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
 		}
 
-		if (rb2d.velocity.x > 0.1f)
+
+
+		if (rb2d.velocity.x == 0 && rb2d.velocity.y == 0)
 		{
-			if (rb2d.velocity.y == 0)
+			anim.Play("Idle");
+		}
+		else
+		{
+			if (rb2d.velocity.x == 0)
 			{
-				anim.Play("Profile");
-				transform.localScale = new Vector2(1,1);
+				speed = choseSpeed;
+				if (rb2d.velocity.y < 0)
+				{
+					anim.Play("Front");
+				}
+				else
+				{
+					anim.Play("Back");
+				}
+			}
+			else if (rb2d.velocity.y == 0)
+			{
+				speed = choseSpeed;
+				if (rb2d.velocity.x < 0)
+				{
+					anim.Play("Profile");
+					transform.localScale = new Vector2(-scale,scale);
+				}
+				else
+				{
+					anim.Play("Profile");
+					transform.localScale = new Vector2(scale,scale);
+				}
+			}
+			else if (rb2d.velocity.y < 0)
+			{
+				speed = choseSpeed*4/5;
+				if (rb2d.velocity.x < 0)
+				{
+					anim.Play("34Front");
+					transform.localScale = new Vector2(-scale,scale);
+				}
+				else if (rb2d.velocity.x > 0)
+				{
+					anim.Play("34Front");
+					transform.localScale = new Vector2(scale,scale);
+				}
 			}
 			else if (rb2d.velocity.y > 0)
 			{
-				anim.Play("34Back");
-				transform.localScale = new Vector2(1,1);
-			}
-			else if (rb2d.velocity.y < 0)
-			{
-				anim.Play("34Front");
-				transform.localScale = new Vector2(1,1);
-			}
-		}
-		else if (rb2d.velocity.x < 0.1f)
-		{
-			if (rb2d.velocity.y == 0)
-			{
-				anim.Play("Profile");
-				transform.localScale = new Vector2(-1,1);
-			}
-			else if (rb2d.velocity.y > 0)
-			{
-				anim.Play("34Back");
-				transform.localScale = new Vector2(-1,1);
-			}
-			else if (rb2d.velocity.y < 0)
-			{
-				anim.Play("34Front");
-				transform.localScale = new Vector2(-1,1);
-			}
-		}
-		else if (rb2d.velocity.x == 0)
-		{
-			if (rb2d.velocity.y > 0)
-			{
-				anim.Play("Front");
-			}
-			else if (rb2d.velocity.y < 0)
-			{
-				anim.Play("Back");
+				speed = choseSpeed*4/5;
+				if (rb2d.velocity.x < 0)
+				{
+					anim.Play("34Back");
+					transform.localScale = new Vector2(-scale,scale);
+				}
+				else if (rb2d.velocity.x > 0)
+				{
+					anim.Play("34Back");
+					transform.localScale = new Vector2(scale,scale);
+				}
 			}
 		}
 	}

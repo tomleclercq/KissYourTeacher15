@@ -4,13 +4,8 @@ using System.Collections;
 public class Animals : MonoBehaviour 
 {
 	Vector3 mousePos;
-
-	void Start () 
-	{
 	
-	}
-
-	void Update () 
+	void FixedUpdate () 
 	{
 		if (Input.GetMouseButtonDown(0))
 		{

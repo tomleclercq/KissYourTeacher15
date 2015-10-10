@@ -6,9 +6,10 @@ using System;
 
 public class JsonUtil : MonoBehaviour
 {
-    public static object loadJsonData<T>(JsonData jsonInput, string key, GameObject sender = null)
+    public static object loadJsonData<T>(JsonData jsonInput, string key )
     {
-        object result = null;
+		GameObject sender= null;
+        object result  = null;
         try
         {
             if (jsonInput[key] != null)
