@@ -6,7 +6,7 @@ using System.IO;
 
 public class LanguageTranslaterScript : MonoBehaviour
 {
-    public bool speachWord;
+    bool speachWord;
     public string jsonKey;
     TextMesh displayTextMesh;
     Text displayText;

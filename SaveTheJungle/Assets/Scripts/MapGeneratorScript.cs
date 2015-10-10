@@ -3,18 +3,24 @@ using System.Collections;
 
 public class MapGeneratorScript : MonoBehaviour {
 
-    public float countX;
-    public float countY;
+    public int countX;
+    public int countY;
+
+    public int seaSize;
+
+    int countAndSeaX;
+    int countAndSeaY;
 
     public GameObject grass;
-    public GameObject Bottom;
-    public GameObject BottomRight;
-    public GameObject BottomLeft;
-    public GameObject Top;
-    public GameObject TopRight;
-    public GameObject TopLeft;
-    public GameObject Left;
-    public GameObject Right;
+    public GameObject bottom;
+    public GameObject bottomRight;
+    public GameObject bottomLeft;
+    public GameObject top;
+    public GameObject topRight;
+    public GameObject topLeft;
+    public GameObject left;
+    public GameObject right;
+    public GameObject sea;
 
     GameObject tile;
     Vector2 position;
@@ -26,6 +32,9 @@ public class MapGeneratorScript : MonoBehaviour {
     {
         if (this.transform.childCount == 0)
         {
+            countAndSeaX = countX + seaSize;
+            countAndSeaY = countY + seaSize;
+
             generated = false;
             grassTileSize = grass.GetComponent<SpriteRenderer>().sprite.rect.size * 0.01f;
         }
@@ -39,43 +48,52 @@ public class MapGeneratorScript : MonoBehaviour {
                 DestroyImmediate(childs[i].gameObject);
         generated = false;
     }
+
     public void CreateBaseMap()
     {
         if (!generated)
         {
-            for (int x = 0; x < countX; x++)
-            {
-                for (int y = 0; y < countY; y++)
-                {
-                    if (y == 0)
-                    {
-                        if (x == 0)
-                            tile = GameObject.Instantiate(BottomLeft) as GameObject;
-                        else
-                            if (x == countX - 1)
-                                tile = GameObject.Instantiate(BottomRight) as GameObject;
-                            else
-                            tile = GameObject.Instantiate(Bottom) as GameObject;
-                    }
-                    else if (y == countY - 1)
-                            if (x == 0)
-                                tile = GameObject.Instantiate(TopLeft) as GameObject;
-                            else
-                                if (x == countX - 1)
-                                    tile = GameObject.Instantiate(TopRight) as GameObject;
-                                else
-                                    tile = GameObject.Instantiate(Top) as GameObject;
-                            else
-                        if (x == 0)
-                            tile = GameObject.Instantiate(Left) as GameObject;
-                        else
-                            if (x == countX - 1)
-                                tile = GameObject.Instantiate(Right) as GameObject;
-                            else
-                            tile = GameObject.Instantiate(grass) as GameObject;
+            int halfSeaSize = seaSize / 2;
+            int halfSeaSizeEndX = countAndSeaX - (seaSize / 2) - 1;
+            int halfSeaSizeEndY = countAndSeaY - (seaSize / 2) - 1;
 
-                    position.x = x * grassTileSize.x - ((countX / 2) * grassTileSize.x - grassTileSize.x / 2);
-                    position.y = y * grassTileSize.y - ((countY / 2) * grassTileSize.y - grassTileSize.y / 2);
+            for (int x = 0; x < countAndSeaX; x++)
+            {
+                for (int y = 0; y < countAndSeaY; y++)
+                {
+                    if (y < halfSeaSize || x < halfSeaSize || x > halfSeaSizeEndX || y > halfSeaSizeEndY)
+                        tile = GameObject.Instantiate(sea) as GameObject;
+                    else
+                    {
+                        if (y == halfSeaSize)
+                        {
+                            if (x == halfSeaSize)
+                                tile = GameObject.Instantiate(bottomLeft) as GameObject;
+                            else
+                                if (x == halfSeaSizeEndX)
+                                    tile = GameObject.Instantiate(bottomRight) as GameObject;
+                                else
+                                    tile = GameObject.Instantiate(bottom) as GameObject;
+                        }
+                        else if (y == halfSeaSizeEndY)
+                            if (x == halfSeaSize)
+                                tile = GameObject.Instantiate(topLeft) as GameObject;
+                            else
+                                if (x == halfSeaSizeEndX)
+                                    tile = GameObject.Instantiate(topRight) as GameObject;
+                                else
+                                    tile = GameObject.Instantiate(top) as GameObject;
+                        else
+                            if (x == halfSeaSize)
+                                tile = GameObject.Instantiate(left) as GameObject;
+                            else
+                                if (x == halfSeaSizeEndX)
+                                    tile = GameObject.Instantiate(right) as GameObject;
+                                else
+                                    tile = GameObject.Instantiate(grass) as GameObject;
+                    }
+                    position.x = x * grassTileSize.x - ((countAndSeaX / 2) * grassTileSize.x - grassTileSize.x / 2);
+                    position.y = y * grassTileSize.y - ((countAndSeaY / 2) * grassTileSize.y - grassTileSize.y / 2);
                     tile.transform.position = position;
                     tile.transform.SetParent(transform);
                 }
