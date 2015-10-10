@@ -26,11 +26,7 @@ public class Player : MonoBehaviour
 	}
 	void Update ()
 	{
-<<<<<<< HEAD
-//		gameObject.layer = (int)(transform.position.y / 2.56f - 1);
-=======
 		gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(transform.position.y / 2.56)*-2 + 199;
->>>>>>> cf44b921426cc154e4304f6ec35cf60ead1194e6
 	}
 
 	void FixedUpdate ()

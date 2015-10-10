@@ -61,7 +61,6 @@ public class LanguageTranslaterScript : MonoBehaviour
     {
         while (ApplicationScript.current.switchingLanguage || !string.IsNullOrEmpty(audioEmitter.clip.name ))
             yield return null;
-        Debug.Log("sound " + audioEmitter.clip.name);
         audioEmitter.PlayOneShot(audioEmitter.clip);
     }
 
