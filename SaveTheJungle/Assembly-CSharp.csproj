@@ -54,13 +54,14 @@
      <Compile Include="Assets\LitJson\JsonWriter.cs" />
      <Compile Include="Assets\LitJson\Lexer.cs" />
      <Compile Include="Assets\LitJson\ParserToken.cs" />
+     <Compile Include="Assets\Scripts\Animals.cs" />
      <Compile Include="Assets\Scripts\ApplicationScript.cs" />
      <Compile Include="Assets\Scripts\AudioLanguageScript.cs" />
      <Compile Include="Assets\Scripts\JsonUtil.cs" />
      <Compile Include="Assets\Scripts\LanguageTranslaterScript.cs" />
      <Compile Include="Assets\Scripts\Languages.cs" />
+     <Compile Include="Assets\Scripts\MapGeneratorScript.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <None Include="Assets\Images\Empty.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
