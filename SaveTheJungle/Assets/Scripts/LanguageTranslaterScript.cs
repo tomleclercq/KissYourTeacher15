@@ -6,7 +6,6 @@ using System.IO;
 
 public class LanguageTranslaterScript : MonoBehaviour
 {
-    bool speachWord;
     public string jsonKey;
     TextMesh displayTextMesh;
     Text displayText;
@@ -24,51 +23,48 @@ public class LanguageTranslaterScript : MonoBehaviour
             if (displayTextMesh != null)
                 displayTextMesh.text = (string)JsonUtil.loadJsonData<string>(languageData, jsonKey);
         }
-        audioEmitter = GetComponent<AudioSource>();
+        StartCoroutine(LoadSound());
+    }
+
+    private IEnumerator LoadSound()
+    {
+        if (audioEmitter == null) audioEmitter = GetComponent<AudioSource>();
         if (audioEmitter != null)
         {
-            string fileName = ApplicationScript.getDataFolder()+"audio/"+jsonKey+"_"+(int)ApplicationScript.current.currentLanguage+".wav";
-            StartCoroutine(LoadAudioFile(fileName));
+            while (audioEmitter.isPlaying)
+                yield return null;
+
+            string fileName = ApplicationScript.getDataFolder() + "audio/" + jsonKey + "_" + (int)ApplicationScript.current.currentLanguage + ".wav";
+            WWW www = new WWW("file://" + fileName);
+            print("loading " + fileName);
+
+            AudioClip clip =  www.GetAudioClip(true);
+            while (clip.loadState == AudioDataLoadState.Loading)
+                yield return www;
+
+            if (string.IsNullOrEmpty(www.error))
+            {
+                audioEmitter.clip = www.GetAudioClip(true);
+                clip.name = Path.GetFileName(fileName);
+            }
+            else
+                Debug.LogWarning(www.error);
         }
     }
 
-    IEnumerator LoadAudioFile(string path)
+    public void PlaySound()
     {
-        WWW www = new WWW("file://" + path);
-        //print("loading " + path);
-
-        AudioClip clip =  www.GetAudioClip(true);
-        while (clip.loadState == AudioDataLoadState.Loading)
-            yield return www;
-
-        if (string.IsNullOrEmpty(www.error))
-        {
-            audioEmitter.clip = www.GetAudioClip(true);
-            clip.name = Path.GetFileName(path);
-        }
-        else
-            Debug.LogWarning(www.error);
+        StartCoroutine(PlaySoundE());
     }
 
-    void Update()
+    public IEnumerator PlaySoundE()
     {
-        if (speachWord) SpeachWord();
+        while( ApplicationScript.current.switchingLanguage )
+            yield return null;
+
+        AudioClip clip = audioEmitter.clip;
+        print("audioEmitter.clip");
+        audioEmitter.PlayOneShot(clip);
     }
 
-    public void SpeachWord()
-    {
-        StartCoroutine( PlaySound() );
-    }
-
-    private IEnumerator PlaySound()
-    {
-		if (audioEmitter != null && audioEmitter.clip != null) {
-			while ((audioEmitter.clip.loadState != AudioDataLoadState.Loaded) && (audioEmitter.clip.name == "")){
-				yield return null;
-			}
-
-			audioEmitter.PlayOneShot (audioEmitter.clip);
-			speachWord = false;
-		}
-    }
 }
