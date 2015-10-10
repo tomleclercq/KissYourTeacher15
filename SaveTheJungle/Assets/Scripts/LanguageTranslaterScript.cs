@@ -35,7 +35,7 @@ public class LanguageTranslaterScript : MonoBehaviour
     IEnumerator LoadAudioFile(string path)
     {
         WWW www = new WWW("file://" + path);
-        print("loading " + path);
+        //print("loading " + path);
 
         AudioClip clip =  www.GetAudioClip(true);
         while (clip.loadState == AudioDataLoadState.Loading)
@@ -62,10 +62,13 @@ public class LanguageTranslaterScript : MonoBehaviour
 
     private IEnumerator PlaySound()
     {
-        while (audioEmitter.clip.loadState != AudioDataLoadState.Loaded)
-            yield return null;
+		if (audioEmitter != null && audioEmitter.clip != null) {
+			while ((audioEmitter.clip.loadState != AudioDataLoadState.Loaded) && (audioEmitter.clip.name == "")){
+				yield return null;
+			}
 
-        audioEmitter.PlayOneShot(audioEmitter.clip);
-        speachWord = false;
+			audioEmitter.PlayOneShot (audioEmitter.clip);
+			speachWord = false;
+		}
     }
 }
