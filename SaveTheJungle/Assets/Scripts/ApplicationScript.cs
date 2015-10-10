@@ -24,11 +24,10 @@ public class ApplicationScript : MonoBehaviour
         return folder;
     }
 
+    public bool switchingLanguage = false;
     public JsonData jsonLanguage;
     public Languages currentLanguage;
-
     public GameObject textsRoot;
-
     private Languages previousLanguage;
 
     void Start ()
@@ -55,19 +54,27 @@ public class ApplicationScript : MonoBehaviour
 
     public void SwitchLanguage( bool more)
     {
+        Debug.Log("switchingLanguage");
+        switchingLanguage = true;
         if (more )
         currentLanguage = (int)currentLanguage < Enum.GetNames(typeof(Languages)).Length - 1 ? currentLanguage + 1 : 0; 
         else
             currentLanguage = (int)currentLanguage >= 1 ? (currentLanguage - 1) : (Languages)(Enum.GetNames(typeof(Languages)).Length - 1);
+        StartCoroutine(Wait());
     }
-
+    
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds( 0.1f ) ;
+        switchingLanguage = false;
+    }
+    
     private void UpdateTextTranslaters()
     {
         if (textsRoot != null )
-            foreach (LanguageTranslaterScript ts in textsRoot.GetComponentsInChildren<LanguageTranslaterScript>())
-            {
-                ts.Init();
-            }
+        foreach (LanguageTranslaterScript ts in textsRoot.GetComponentsInChildren<LanguageTranslaterScript>())
+        {
+            ts.Init();
+        }
     }
-
 }
