@@ -34,7 +34,7 @@ public class Trap : MonoBehaviour {
 					child.gameObject.SetActive(true);
 				}
 //				StartCoroutine(AnimalLeave (GetComponentInChildren<Rigidbody2D>()));
-			}else if (cluePrefab != null){
+			}else if (cluePrefab != null && clueInstance == null){
 				clueInstance = Instantiate(cluePrefab, transform.position, Quaternion.identity) as GameObject;
 				clueInstance.transform.position += Vector3.down * 2;
 			}
@@ -45,6 +45,8 @@ public class Trap : MonoBehaviour {
 		if (other.tag == "Player"){
 		    if (clueInstance != null){
 				GameObject.Destroy(clueInstance);
+				clueInstance.transform.localScale = new Vector2 (0,0);
+				print (clueInstance.name);
 			}else{
 				//GetComponent<Animator>().SetTrigger("StopAnim");
 			}
