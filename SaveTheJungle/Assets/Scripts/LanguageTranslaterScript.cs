@@ -7,9 +7,6 @@ using System.IO;
 public class LanguageTranslaterScript : MonoBehaviour
 {
     public bool onBookData;
-    [HideInInspector]
-    public string currentAnimal;
-
     public string jsonKey;
     TextMesh displayTextMesh;
     Text displayText;
@@ -20,10 +17,7 @@ public class LanguageTranslaterScript : MonoBehaviour
         JsonData languageData;
         if( onBookData )
         {
-            JsonData data = (JsonData)JsonUtil.loadJsonData<JsonData>(ApplicationScript.current.jsonLanguage, "Animals");
-            JsonData data2 = (JsonData)JsonUtil.loadJsonData<JsonData>(data, currentAnimal);
-            JsonData data3 = (JsonData)JsonUtil.loadJsonData<JsonData>(ApplicationScript.current.jsonLanguage, currentAnimal);
-            languageData = data[currentAnimal]["DataPerLanguage"][(int)ApplicationScript.current.currentLanguage]["Data"];
+            languageData = ApplicationScript.current.jsonLanguage["Animals"][0][ApplicationScript.current.animalName + "Data"][(int)ApplicationScript.current.currentLanguage]["Data"];
         }
         else
             languageData = ApplicationScript.current.jsonLanguage["DataPerLanguage"][(int)ApplicationScript.current.currentLanguage]["Data"];
@@ -51,15 +45,14 @@ public class LanguageTranslaterScript : MonoBehaviour
 
             string fileName = ApplicationScript.getDataFolder() + "audio/" + jsonKey + "_" + (int)ApplicationScript.current.currentLanguage + ".wav";
             WWW www = new WWW("file://" + fileName);
-            print("loading " + fileName);
 
-            AudioClip clip =  www.GetAudioClip(true);
+            AudioClip clip =  www.GetAudioClip(false);
             while (clip.loadState == AudioDataLoadState.Loading)
                 yield return www;
 
             if (string.IsNullOrEmpty(www.error))
             {
-                audioEmitter.clip = www.GetAudioClip(true);
+                audioEmitter.clip = www.GetAudioClip(false);
                 clip.name = Path.GetFileName(fileName);
             }
             else
@@ -74,9 +67,12 @@ public class LanguageTranslaterScript : MonoBehaviour
 
     public IEnumerator PlaySoundE()
     {
-        while (ApplicationScript.current.switchingLanguage || !string.IsNullOrEmpty(audioEmitter.clip.name ))
+        while (ApplicationScript.current.switchingLanguage || audioEmitter.clip.loadState == AudioDataLoadState.Loading )// (audioEmitter == null ) || (audioEmitter.clip == null ) || string.IsNullOrEmpty(audioEmitter.clip.name) )
             yield return null;
+       // Debug.Log("Play sound " + );
         audioEmitter.PlayOneShot(audioEmitter.clip);
+        //Debug.Log("Play sound "+audioEmitter.isPlaying);
+
     }
 
 }

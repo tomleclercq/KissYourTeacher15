@@ -33,6 +33,8 @@ public class ApplicationScript : MonoBehaviour
     public GameObject Menu;
     public GameObject Book;
     public GameObject UI;
+    [HideInInspector]
+    public string animalName;
 
     void Start ()
     {
@@ -42,10 +44,9 @@ public class ApplicationScript : MonoBehaviour
         UpdateTextTranslaters();
         previousLanguage = currentLanguage;
 
-        Menu.SetActive(true);
-        Book.SetActive(false);
-        UI.SetActive(false);
-        //Time.timeScale = 0;
+        if (Menu != null) Menu.SetActive(true);
+        if (Book != null) Book.SetActive(false);
+        if (UI != null)UI.SetActive(false);
     }
 
     public void LaunchGame()
@@ -56,11 +57,9 @@ public class ApplicationScript : MonoBehaviour
     IEnumerator StartGame()
     {
         yield return new WaitForSeconds(0.75f);
-        Menu.SetActive(false);
-        Book.SetActive(false);
-        UI.SetActive(true);
-        Time.timeScale = 1;
-
+        if( Menu != null )Menu.SetActive(false);
+        if (Book != null) Book.SetActive(false);
+        if (UI != null) UI.SetActive(true);
         yield return null;
     }
 
@@ -74,11 +73,25 @@ public class ApplicationScript : MonoBehaviour
             UpdateTextTranslaters();
             previousLanguage = currentLanguage;
         }
+        /*if( Input.GetKeyDown( KeyCode.Z ) )
+        {
+            Debug.Log("Add to collection");
+            Book.GetComponent<BookScript>().AddNewCollection("zebra");
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Add to collection");
+            Book.GetComponent<BookScript>().AddNewCollection("lion");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log("Add to collection");
+            Book.GetComponent<BookScript>().AddNewCollection("snake");
+        }*/
     }
-
     public void SwitchLanguage( bool more)
     {
-        Debug.Log("switchingLanguage");
+        //Debug.Log("switchingLanguage");
         switchingLanguage = true;
         if (more )
         currentLanguage = (int)currentLanguage < Enum.GetNames(typeof(Languages)).Length - 1 ? currentLanguage + 1 : 0; 
