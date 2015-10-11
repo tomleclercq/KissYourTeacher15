@@ -35,9 +35,9 @@ public class BookScript : MonoBehaviour
         }
         pages[pageCount].SetActive(true);
         pageCount++;
-        Toggle(true);
+        //Toggle(true);
     }
-
+	/*
     public void Toggle( bool _forceOpen = false)
     {
         if (!open || _forceOpen)
@@ -55,7 +55,7 @@ public class BookScript : MonoBehaviour
             open = false;
         }
     }
-
+*/
     IEnumerator OpenBookE()
     {
         lerpValue = 0;
