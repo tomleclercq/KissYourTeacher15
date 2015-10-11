@@ -5,7 +5,7 @@
   },
   "Animals":[
     {
-      "bear":[
+      "bearData":[
         {
           "Language":0,
           "Data":{
@@ -31,335 +31,299 @@
           "Data":{
             "especies":"Oso",
             "class":"Mamîferos",
-            "characteristics":"esunanimalmarróngrande",
-            "food":"Frutas, hierbasypeces",
-            "habitat":"EuropayAsia"
+            "characteristics":"es un animal marrón grande",
+            "food":"Frutas, hierbas y peces",
+            "habitat":"Europa y Asia"
           }
         }
       ],
-      "zebra":[
+      "zebraData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Zebra",
-                "class":"Mammals",
-                "characteristics":"Itisabigwhiteanimalwithblackstripes",
-                "food":"Fruits,herbs",
-                "habitat":"Africa"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Zèbre",
-                "class":"Mammifères",
-                "characteristics":"c'estungrandanimalblancavecdestraitsnoirs",
-                "food":"Fruits, herbes",
-                "habitat":"Afrique"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Zebra",
-                "class":"Mamîferos",
-                "characteristics":"esunanimalgrandeblancoconrayasnegras",
-                "food":"Frutas, hierbas",
-                "habitat":"Africa"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Zebra",
+			"class":"Mammals",
+			"characteristics":"It is a big white animal with black stripes",
+			"food":"Fruits, herbs",
+			"habitat":"Africa"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Zèbre",
+			"class":"Mammifères",
+			"characteristics":"c'est un grand animal blanc avec des traits noirs",
+			"food":"Fruits, herbes",
+			"habitat":"Afrique"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Zebra",
+			"class":"Mamîferos",
+			"characteristics":"es un animal grande blanco con rayas negras",
+			"food":"Frutas, hierbas",
+			"habitat":"Africa"
+		  }
+		}            
       ],
-      "orangutan":[
+      "orangutanData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Orangutan",
-                "class":"Mammals",
-                "characteristics":"It'sananimalwholivesinthethrees",
-                "food":"Fruits,herbs",
-                "habitat":"SumatraandBomeo's forest"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Orang-utan",
-                "class":"Mammifères",
-                "characteristics":"c'estunanimalquihabitedanslesarbres",
-                "food":"Fruits, herbes",
-                "habitat":"FôretsdeBomeoetSumatra"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Orangutan",
-                "class":"Mamîferos",
-                "characteristics":"esunanimalqueviveenlosarboles",
-                "food":"Frutas,hierbas",
-                "habitat":"SelvasdeSumatrayBomeo"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Orangutan",
+			"class":"Mammals",
+			"characteristics":"It's an animal who lives in the threes",
+			"food":"Fruits, herbs",
+			"habitat":"Sumatra and Bomeo's forest"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Orang-utan",
+			"class":"Mammifères",
+			"characteristics":"c'est un animal qui habite dans les arbres",
+			"food":"Fruits, herbes",
+			"habitat":"Fôrets de Bomeo et Sumatra"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Orangutan",
+			"class":"Mamîferos",
+			"characteristics":"es un animal que vive en los arboles",
+			"food":"Frutas,hierbas",
+			"habitat":"Selvas de Sumatra y Bomeo"
+		  }
+		}
       ],
-      "lion":[
+      "lionData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Lion",
-                "class":"Mammals",
-                "characteristics":"It'sawildcarnivore",
-                "food":"Buffalo,Deer, wildboars",
-                "habitat":"Asia, Africa,India,Eastern"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Lion",
-                "class":"Mammifères",
-                "characteristics":"c'estunanimalcarnivoresauvage",
-                "food":"Buffles, cerfs, sanglier",
-                "habitat":"Asie, Afrique, Inde,Orient"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"León",
-                "class":"Mamîferos",
-                "characteristics":"Esuncarnívorosalvaje",
-                "food":"Búfalos,ciervos,jabalíes",
-                "habitat":"Asia, Africa,India, Oriente"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Lion",
+			"class":"Mammals",
+			"characteristics":"It's a wild carnivore",
+			"food":"Buffalo, Deer, wildboars",
+			"habitat":"Asia, Africa,India,Eastern"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Lion",
+			"class":"Mammifères",
+			"characteristics":"c'est un animal carnivore sauvage",
+			"food":"Buffles, cerfs, sanglier",
+			"habitat":"Asie, Afrique, Inde,Orient"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"León",
+			"class":"Mamîferos",
+			"characteristics":"Es un carnívoro salvaje",
+			"food":"Búfalos,ciervos,jabalíes",
+			"habitat":"Asia, Africa, India, Oriente"
+		  }
+		}
       ],
-      "turtle":[
+      "turtleData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Turtle",
-                "class":"Reptile",
-                "characteristics":"Animalwithfourlegsandacaparasson",
-                "food":"Coral,acuatiquevegetation,alges",
-                "habitat":"Alltheseasintheworld"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Tortue",
-                "class":"Reptile",
-                "characteristics":"Animalavecuncaparassonatquatrepattes",
-                "food":"Corail,végétationacuatique,alges",
-                "habitat":"Touteslesmersduglobe"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Tortuga",
-                "class":"Reptil",
-                "characteristics":"Animalconquatropatasyuncaparazón",
-                "food":"Coral,Vegetaciónacuática,algas",
-                "habitat":"Todoslosmaresenelglobo"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Turtle",
+			"class":"Reptile",
+			"characteristics":"Animal with four legs and a caparasson",
+			"food":"Coral, acuatique vegetation, alges",
+			"habitat":"All the seas in the world"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Tortue",
+			"class":"Reptile",
+			"characteristics":"Animal avec un caparasson a quatre pattes",
+			"food":"Corail, végétation acuatique, alges",
+			"habitat":"Toutes les mers du globe"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Tortuga",
+			"class":"Reptil",
+			"characteristics":"Animal con quatro patas y unc aparazón",
+			"food":"Coral,Vegetación acuática, algas",
+			"habitat":"Todos los mares en el globo"
+		  }
+		}
       ],
-      "pinguin":[
+      "pinguinData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Pinguin",
-                "class":"Birds",
-                "characteristics":"Flightlessseabird",
-                "food":"Fish",
-                "habitat":"Southemisphere"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Pinguin",
-                "class":"Oiseaux",
-                "characteristics":"Oiseaudemerquinepeuxpasvoler",
-                "food":"Poissons",
-                "habitat":"Hemispheresud"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Pingüino",
-                "class":"Aves",
-                "characteristics":"Pajarodemarquenopuedevolar",
-                "food":"Frutas,hierbasypeces",
-                "habitat":"Hemisferiosur"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Pinguin",
+			"class":"Birds",
+			"characteristics":"Flightless sea bird",
+			"food":"Fish",
+			"habitat":"Sout hemisphere"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Pinguin",
+			"class":"Oiseaux",
+			"characteristics":"Oiseau de mer qui ne peux pas voler",
+			"food":"Poissons",
+			"habitat":"Hemisphere sud"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Pingüino",
+			"class":"Aves",
+			"characteristics":"Pajaro de mar que no puede volar",
+			"food":"Frutas, hierbasypeces",
+			"habitat":"Hemisferio sur"
+		  }
+		}
       ],
-      "ostrich":[
+      "ostrichData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Ostrich",
-                "class":"Birds",
-                "characteristics":"It'sahugefastbird",
-                "food":"seeds, shrubs,grass",
-                "habitat":"Africa"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Autruche",
-                "class":"Oiseaux",
-                "characteristics":"C'estuneénormeoiseaurapide",
-                "food":"graines, arbustes,del'herbe",
-                "habitat":"Afrique"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Avestruz",
-                "class":"Aves",
-                "characteristics":"Esunavegrandeyrapida",
-                "food":"semillas,arbustos, hierba",
-                "habitat":"Africa"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Ostrich",
+			"class":"Birds",
+			"characteristics":"It's a huge fast bird",
+			"food":"seeds, shrubs, grass",
+			"habitat":"Africa"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Autruche",
+			"class":"Oiseaux",
+			"characteristics":"C'est une énorme oiseau rapide",
+			"food":"graines, arbustes, del'herbe",
+			"habitat":"Afrique"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Avestruz",
+			"class":"Aves",
+			"characteristics":"Es un ave grande y rapida",
+			"food":"semillas, arbustos, hierba",
+			"habitat":"Africa"
+		  }
+		}
       ],
-      "snake":[
+      "snakeData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Snake",
-                "class":"Reptile",
-                "characteristics":"Somearepoisonousanddeadlyforman",
-                "food":"Otherreptilesandrats",
-                "habitat":"Everywhereintheworld.MostofAfricaandSouthAmerica"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Serpent",
-                "class":"Reptile",
-                "characteristics":"Quelquesunssontvenimeuxetmortelspourl'homme",
-                "food":"D'autresreptiles, rats",
-                "habitat":"Partoutdanslemonde.LapluspartAfriqueetAmériqueduSud"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Serpiente",
-                "class":"Reptile",
-                "characteristics":"Algunassonvenenosasymortalesparaelhombre",
-                "food":"Otrosreptilesyratas",
-                "habitat":"Portodoelmundo.LamayorparteenAfricayAméricadelsur"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Snake",
+			"class":"Reptile",
+			"characteristics":"Some are poisonous and deadly for man",
+			"food":"Other reptiles and rats",
+			"habitat":"Everywhere in the world. Most of Africa and South America"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Serpent",
+			"class":"Reptile",
+			"characteristics":"Quelques uns sont venimeux et mortels pour l'homme",
+			"food":"D'autres reptiles, rats",
+			"habitat":"Partout dans le monde. La plus part Afrique et Amérique du Sud"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Serpiente",
+			"class":"Reptile",
+			"characteristics":"Algunas son venenosas y mortales para el hombre",
+			"food":"Otros reptiles y ratas",
+			"habitat":"Por todo el mundo. La mayor parte en Africa y América del sur"
+		  }
+		}
       ],
-      "parrot":[
+      "parrotData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Parrot",
-                "class":"Birds",
-                "characteristics":"It'sabirdwhomimicshumansound",
-                "food":"Girasolseeds, nuts,corn",
-                "habitat":"Australia, Africa, India, Asia, America"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Perroquet",
-                "class":"Oiseaux",
-                "characteristics":"C'estunoiseauqu'imitelesondeshumains",
-                "food":"graines,arbustes,del'herbe",
-                "habitat":"Australia,Africa,India,Asia, América"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Loro",
-                "class":"Aves",
-                "characteristics":"Semillasdegirasol, nueces,maíz",
-                "food":"Semillasdegirasol,nueces,maíz",
-                "habitat":"Australia,Africa,India,Asia,América"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Parrot",
+			"class":"Birds",
+			"characteristics":"It's a bird who mimics human sound",
+			"food":"Girasol seeds, nuts, corn",
+			"habitat":"Australia, Africa, India, Asia, America"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Perroquet",
+			"class":"Oiseaux",
+			"characteristics":"C'est un oiseau qu'imite les ondes humains",
+			"food":"graines, arbustes, del'herbe",
+			"habitat":"Australia, Africa, India, Asia, América"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Loro",
+			"class":"Aves",
+			"characteristics":"Semillas de girasol, nueces, maíz",
+			"food":"Semillas de girasol, nueces, maíz",
+			"habitat":"Australia,Africa,India,Asia,América"
+		  }
+		}
       ],
-      "crocodile":[
+      "crocodileData":[
         {
-          "DataPerLanguage":[
-            {
-              "Language":0,
-              "Data":{
-                "especies":"Crocodile",
-                "class":"Reptile",
-                "characteristics":"It'salargepredatorwithaverysharptheet",
-                "food":"Fish, birdsandmammals",
-                "habitat":"America,Asia,Africa and Australia"
-              }
-            },
-            {
-              "Language":1,
-              "Data":{
-                "especies":"Crocodile",
-                "class":"Reptile",
-                "characteristics":"C'estungrandpredateuravecdesdentstrèsaiguisés",
-                "food":"Poissons,oiseauxetmammifères",
-                "habitat":"Amérique,Asie,AfriqueetAustralie"
-              }
-            },
-            {
-              "Language":2,
-              "Data":{
-                "especies":"Cocodrilo",
-                "class":"Reptile",
-                "characteristics":"Algunassonvenenosasymortalesparaelhombre",
-                "food":"Pescados,avesymamiferos",
-                "habitat":"América, Asia,AfricayAustralia"
-              }
-            }
-          ]
-        }
+		  "Language":0,
+		  "Data":{
+			"especies":"Crocodile",
+			"class":"Reptile",
+			"characteristics":"It's a large predator with a very sharp theet",
+			"food":"Fish, birds and mammals",
+			"habitat":"America,Asia,Africa and Australia"
+		  }
+		},
+		{
+		  "Language":1,
+		  "Data":{
+			"especies":"Crocodile",
+			"class":"Reptile",
+			"characteristics":"C'est un grand predateur avec des dents très aiguisés",
+			"food":"Poissons, oiseaux et mammifères",
+			"habitat":"Amérique, Asie, Afrique et Australie"
+		  }
+		},
+		{
+		  "Language":2,
+		  "Data":{
+			"especies":"Cocodrilo",
+			"class":"Reptile",
+			"characteristics":"Algunas son venenosas y mortales para el hombre",
+			"food":"Pescados,aves y mamiferos",
+			"habitat":"América, Asia, Africa y Australia"
+		  }
+		}
       ]
     }
   ],
