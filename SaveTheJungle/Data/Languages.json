@@ -1,62 +1,422 @@
 {
-    "Data": {
-        "levelName":"Jungle01",
-        "characterSpeed":15
-    },
-    "DataPerLanguage": [
+  "Data":{
+    "levelName":"Jungle01",
+    "characterSpeed":15
+  },
+  "Animals":[
+    {
+      "bear":[
         {
-            "Language": 0,
-            "Data": {
-                "play": "Play",
-                "language": "English",
-                "credit": "Credits",
-                "bear":"Bear",
-                "zebra":"Zebra",
-                "orangutan":"Orangutan",
-                "lion": "Lion",
-                "turtle": "Turtle",
-                "crocodile": "Crocodile",
-                "snake": "Snake",
-                "parrot":"Parrot",
-                "ostrich":"Ostrich",
-                "pinguin":"Pinguin"
-            }
+          "Language":0,
+          "Data":{
+            "especies":"Bear",
+            "class":"Mammals",
+            "characteristics":"it's a big animal who eats fruits, grass and fish",
+            "food":"Fruits, herbs and fishs",
+            "habitat":"Europe and Asia"
+          }
         },
         {
-            "Language": 1,
-            "Data": {
-                "play": "Jouer",
-                "language": "Français",
-                "credit": "Crédits",
-                "bear": "Ours",
-                "zebra": "Zèbre",
-                "orangutan": "Orang-outan",
-                "lion": "Lion",
-                "turtle":"Tortue",
-                "crocodile":"Crocodile",
-                "snake":"Serpent",
-                "parrot":"Perroquet",
-                "ostrich":"Autruche",
-                "pinguin":"Pinguin"
-            }
+          "Language":1,
+          "Data":{
+            "especies":"Ours",
+            "class":"Mammifères",
+            "characteristics":"c'est un grand animal brun",
+            "food":"Fruits, herbes, poissons",
+            "habitat":"Europe and Asie"
+          }
         },
         {
-            "Language": 2,
-            "Data": {
-                "play": "Jugar",
-                "language": "Español",
-                "credit": "Créditos",
-                "bear": "Oso",
-                "zebra": "Zebra",
-                "orangutan": "Orangutan",
-                "lion": "León",
-                "turtle":"Tortuga",
-                "crocodile":"Cocodrilo",
-                "snake":"Serpiente",
-                "parrot":"Loro",
-                "ostrich":"Avestruz",
-                "pinguin":"Pingüino"
-            }
+          "Language":2,
+          "Data":{
+            "especies":"Oso",
+            "class":"Mamîferos",
+            "characteristics":"esunanimalmarróngrande",
+            "food":"Frutas, hierbasypeces",
+            "habitat":"EuropayAsia"
+          }
         }
-    ]
+      ],
+      "zebra":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Zebra",
+                "class":"Mammals",
+                "characteristics":"Itisabigwhiteanimalwithblackstripes",
+                "food":"Fruits,herbs",
+                "habitat":"Africa"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Zèbre",
+                "class":"Mammifères",
+                "characteristics":"c'estungrandanimalblancavecdestraitsnoirs",
+                "food":"Fruits, herbes",
+                "habitat":"Afrique"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Zebra",
+                "class":"Mamîferos",
+                "characteristics":"esunanimalgrandeblancoconrayasnegras",
+                "food":"Frutas, hierbas",
+                "habitat":"Africa"
+              }
+            }
+          ]
+        }
+      ],
+      "orangutan":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Orangutan",
+                "class":"Mammals",
+                "characteristics":"It'sananimalwholivesinthethrees",
+                "food":"Fruits,herbs",
+                "habitat":"SumatraandBomeo's forest"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Orang-utan",
+                "class":"Mammifères",
+                "characteristics":"c'estunanimalquihabitedanslesarbres",
+                "food":"Fruits, herbes",
+                "habitat":"FôretsdeBomeoetSumatra"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Orangutan",
+                "class":"Mamîferos",
+                "characteristics":"esunanimalqueviveenlosarboles",
+                "food":"Frutas,hierbas",
+                "habitat":"SelvasdeSumatrayBomeo"
+              }
+            }
+          ]
+        }
+      ],
+      "lion":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Lion",
+                "class":"Mammals",
+                "characteristics":"It'sawildcarnivore",
+                "food":"Buffalo,Deer, wildboars",
+                "habitat":"Asia, Africa,India,Eastern"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Lion",
+                "class":"Mammifères",
+                "characteristics":"c'estunanimalcarnivoresauvage",
+                "food":"Buffles, cerfs, sanglier",
+                "habitat":"Asie, Afrique, Inde,Orient"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"León",
+                "class":"Mamîferos",
+                "characteristics":"Esuncarnívorosalvaje",
+                "food":"Búfalos,ciervos,jabalíes",
+                "habitat":"Asia, Africa,India, Oriente"
+              }
+            }
+          ]
+        }
+      ],
+      "turtle":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Turtle",
+                "class":"Reptile",
+                "characteristics":"Animalwithfourlegsandacaparasson",
+                "food":"Coral,acuatiquevegetation,alges",
+                "habitat":"Alltheseasintheworld"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Tortue",
+                "class":"Reptile",
+                "characteristics":"Animalavecuncaparassonatquatrepattes",
+                "food":"Corail,végétationacuatique,alges",
+                "habitat":"Touteslesmersduglobe"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Tortuga",
+                "class":"Reptil",
+                "characteristics":"Animalconquatropatasyuncaparazón",
+                "food":"Coral,Vegetaciónacuática,algas",
+                "habitat":"Todoslosmaresenelglobo"
+              }
+            }
+          ]
+        }
+      ],
+      "pinguin":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Pinguin",
+                "class":"Birds",
+                "characteristics":"Flightlessseabird",
+                "food":"Fish",
+                "habitat":"Southemisphere"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Pinguin",
+                "class":"Oiseaux",
+                "characteristics":"Oiseaudemerquinepeuxpasvoler",
+                "food":"Poissons",
+                "habitat":"Hemispheresud"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Pingüino",
+                "class":"Aves",
+                "characteristics":"Pajarodemarquenopuedevolar",
+                "food":"Frutas,hierbasypeces",
+                "habitat":"Hemisferiosur"
+              }
+            }
+          ]
+        }
+      ],
+      "ostrich":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Ostrich",
+                "class":"Birds",
+                "characteristics":"It'sahugefastbird",
+                "food":"seeds, shrubs,grass",
+                "habitat":"Africa"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Autruche",
+                "class":"Oiseaux",
+                "characteristics":"C'estuneénormeoiseaurapide",
+                "food":"graines, arbustes,del'herbe",
+                "habitat":"Afrique"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Avestruz",
+                "class":"Aves",
+                "characteristics":"Esunavegrandeyrapida",
+                "food":"semillas,arbustos, hierba",
+                "habitat":"Africa"
+              }
+            }
+          ]
+        }
+      ],
+      "snake":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Snake",
+                "class":"Reptile",
+                "characteristics":"Somearepoisonousanddeadlyforman",
+                "food":"Otherreptilesandrats",
+                "habitat":"Everywhereintheworld.MostofAfricaandSouthAmerica"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Serpent",
+                "class":"Reptile",
+                "characteristics":"Quelquesunssontvenimeuxetmortelspourl'homme",
+                "food":"D'autresreptiles, rats",
+                "habitat":"Partoutdanslemonde.LapluspartAfriqueetAmériqueduSud"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Serpiente",
+                "class":"Reptile",
+                "characteristics":"Algunassonvenenosasymortalesparaelhombre",
+                "food":"Otrosreptilesyratas",
+                "habitat":"Portodoelmundo.LamayorparteenAfricayAméricadelsur"
+              }
+            }
+          ]
+        }
+      ],
+      "parrot":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Parrot",
+                "class":"Birds",
+                "characteristics":"It'sabirdwhomimicshumansound",
+                "food":"Girasolseeds, nuts,corn",
+                "habitat":"Australia, Africa, India, Asia, America"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Perroquet",
+                "class":"Oiseaux",
+                "characteristics":"C'estunoiseauqu'imitelesondeshumains",
+                "food":"graines,arbustes,del'herbe",
+                "habitat":"Australia,Africa,India,Asia, América"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Loro",
+                "class":"Aves",
+                "characteristics":"Semillasdegirasol, nueces,maíz",
+                "food":"Semillasdegirasol,nueces,maíz",
+                "habitat":"Australia,Africa,India,Asia,América"
+              }
+            }
+          ]
+        }
+      ],
+      "crocodile":[
+        {
+          "DataPerLanguage":[
+            {
+              "Language":0,
+              "Data":{
+                "especies":"Crocodile",
+                "class":"Reptile",
+                "characteristics":"It'salargepredatorwithaverysharptheet",
+                "food":"Fish, birdsandmammals",
+                "habitat":"America,Asia,Africa and Australia"
+              }
+            },
+            {
+              "Language":1,
+              "Data":{
+                "especies":"Crocodile",
+                "class":"Reptile",
+                "characteristics":"C'estungrandpredateuravecdesdentstrèsaiguisés",
+                "food":"Poissons,oiseauxetmammifères",
+                "habitat":"Amérique,Asie,AfriqueetAustralie"
+              }
+            },
+            {
+              "Language":2,
+              "Data":{
+                "especies":"Cocodrilo",
+                "class":"Reptile",
+                "characteristics":"Algunassonvenenosasymortalesparaelhombre",
+                "food":"Pescados,avesymamiferos",
+                "habitat":"América, Asia,AfricayAustralia"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DataPerLanguage":[
+    {
+      "Language":0,
+      "Data":{
+        "play":"Play",
+        "language":"English",
+        "credit":"Credits",
+        "bear":"Bear",
+        "zebra":"Zebra",
+        "orangutan":"Orangutan",
+        "lion":"Lion",
+        "turtle":"Turtle",
+        "crocodile":"Crocodile",
+        "snake":"Snake",
+        "parrot":"Parrot",
+        "ostrich":"Ostrich",
+        "pinguin":"Pinguin"
+      }
+    },
+    {
+      "Language":1,
+      "Data":{
+        "play":"Jouer",
+        "language":"Français",
+        "credit":"Crédits",
+        "bear":"Ours",
+        "zebra":"Zèbre",
+        "orangutan":"Orang-outan",
+        "lion":"Lion",
+        "turtle":"Tortue",
+        "crocodile":"Crocodile",
+        "snake":"Serpent",
+        "parrot":"Perroquet",
+        "ostrich":"Autruche",
+        "pinguin":"Pinguin"
+      }
+    },
+    {
+      "Language":2,
+      "Data":{
+        "play":"Jugar",
+        "language":"Español",
+        "credit":"Créditos",
+        "bear":"Oso",
+        "zebra":"Zebra",
+        "orangutan":"Orangutan",
+        "lion":"León",
+        "turtle":"Tortuga",
+        "crocodile":"Cocodrilo",
+        "snake":"Serpiente",
+        "parrot":"Loro",
+        "ostrich":"Avestruz",
+        "pinguin":"Pingüino"
+      }
+    }
+  ]
 }

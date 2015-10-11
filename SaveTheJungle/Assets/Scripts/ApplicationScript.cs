@@ -30,14 +30,38 @@ public class ApplicationScript : MonoBehaviour
     public GameObject[] textsRoot;
     private Languages previousLanguage;
 
+    public GameObject Menu;
+    public GameObject Book;
+    public GameObject UI;
+
     void Start ()
     {
         string file = File.ReadAllText( getDataFolder()+"Languages.json");
-        JsonData json = JsonMapper.ToObject(file);
-        jsonLanguage = (JsonData)JsonUtil.loadJsonData<JsonData>(json, "DataPerLanguage");
+        jsonLanguage = JsonMapper.ToObject(file);
 
         UpdateTextTranslaters();
         previousLanguage = currentLanguage;
+
+        Menu.SetActive(true);
+        Book.SetActive(false);
+        UI.SetActive(false);
+        //Time.timeScale = 0;
+    }
+
+    public void LaunchGame()
+    {
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(0.75f);
+        Menu.SetActive(false);
+        Book.SetActive(false);
+        UI.SetActive(true);
+        Time.timeScale = 1;
+
+        yield return null;
     }
 
     void Update ()
