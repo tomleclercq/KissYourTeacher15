@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class Poacher : MonoBehaviour 
 {
-	float speed;
 	public float choseSpeed = 5;
 	public float scale = 0.6f;
 	public int ID;
@@ -28,7 +27,6 @@ public class Poacher : MonoBehaviour
 		
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		anim = gameObject.GetComponent<Animator> ();
-		speed = choseSpeed;
 	}
 	
 	void Update ()
@@ -72,7 +70,6 @@ public class Poacher : MonoBehaviour
 		{
 			if (rb2d.velocity.x == 0)
 			{
-				speed = choseSpeed;
 				if (rb2d.velocity.y < 0)
 				{
 					anim.Play("Front");
@@ -84,7 +81,6 @@ public class Poacher : MonoBehaviour
 			}
 			else if (rb2d.velocity.y == 0)
 			{
-				speed = choseSpeed;
 				if (rb2d.velocity.x < 0)
 				{
 					anim.Play("profile");
@@ -98,7 +94,6 @@ public class Poacher : MonoBehaviour
 			}
 			else if (rb2d.velocity.y < 0)
 			{
-				speed = choseSpeed*4/5;
 				if (rb2d.velocity.x < 0)
 				{
 					anim.Play("34Front");
@@ -112,7 +107,6 @@ public class Poacher : MonoBehaviour
 			}
 			else if (rb2d.velocity.y > 0)
 			{
-				speed = choseSpeed*4/5;
 				if (rb2d.velocity.x < 0)
 				{
 					anim.Play("34Back");

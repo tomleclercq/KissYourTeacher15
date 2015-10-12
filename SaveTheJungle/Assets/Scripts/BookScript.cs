@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class BookScript : MonoBehaviour
 {
-    static float ANIM_SPEED = 2.2f;
+    static float ANIM_SPEED = 6f;
+    public static bool openned = false;
     Vector3 pos;
     Vector3 scale;
 
-    bool open = false;
     float lerpValue = 0;
 
     int currentKnownPageID=-1;
     int currentPageID = -1;
     GameObject currentPage = null;
+
+    public Image darker;
 
     public GameObject buttonOpen;
     public GameObject buttonNext;
@@ -22,6 +25,7 @@ public class BookScript : MonoBehaviour
     public GameObject textRoot;
 
     public List<GameObject> pages = new List<GameObject>();
+    [HideInInspector]
     public List<int> knownPageIds = new List<int>();
 
     void Start()
@@ -33,7 +37,7 @@ public class BookScript : MonoBehaviour
         transform.localScale = Vector3.zero;
         foreach(GameObject p in pages)
             p.SetActive(false);
-        //buttonOpen.SetActive(false);
+        buttonOpen.SetActive(false);
         buttonNext.SetActive(false);
         buttonPrevious.SetActive(false);
         buttonQuit.SetActive(false);
@@ -41,6 +45,7 @@ public class BookScript : MonoBehaviour
 
     public void AddNewCollection(string _animal)
     {
+
         gameObject.SetActive(true);
         ApplicationScript.current.animalName = _animal;
 
@@ -75,7 +80,7 @@ public class BookScript : MonoBehaviour
                 currentPage = pages[currentPageID];
         }
 
-        if (currentPage != null && !open)
+        if (currentPage != null && !BookScript.openned)
         {
             UpdateData();
             StartCoroutine(openAnimation());
@@ -99,36 +104,62 @@ public class BookScript : MonoBehaviour
         lerpValue = 0;
         while (lerpValue < 1)
         {
+            lerpValue += Time.deltaTime * ANIM_SPEED;
             transform.localPosition = Vector3.Lerp(Vector3.zero, pos, lerpValue);
             transform.localScale = Vector3.Lerp(Vector3.zero, scale, lerpValue);
-            lerpValue += Time.deltaTime * ANIM_SPEED;
             yield return null;
         }
-        open = true;
+        BookScript.openned = true;
+        lerpValue = 0;
+        Color color = darker.color;
+        while (lerpValue < 1)
+        {
+            lerpValue += Time.deltaTime * ANIM_SPEED;
+            color.a = Mathf.Lerp(0f, 0.75f, lerpValue);
+            darker.color = color;
+            yield return null;
+        }
+        Time.timeScale = 0f;
+        
         yield return null;
+
     }
 
     public void CloseTHEBook()
     {
-        if (open) StartCoroutine(closeAnimation());
+        if (BookScript.openned)
+        {
+            Time.timeScale = 1f;
+            StartCoroutine(closeAnimation());
+        }
     }
 
     IEnumerator closeAnimation()
     {
         lerpValue = 0;
+        Color color = darker.color;
         while (lerpValue < 1)
         {
-            transform.localPosition = Vector3.Lerp(pos, Vector3.zero, lerpValue);
-            transform.localScale = Vector3.Lerp(scale, Vector3.zero, lerpValue);
             lerpValue += Time.deltaTime * ANIM_SPEED;
+            color.a = Mathf.Lerp(0.75f, 0f, lerpValue);
+            darker.color = color;
             yield return null;
         }
+
+        lerpValue = 0;
+        while (lerpValue < 1)
+        {
+            lerpValue += Time.deltaTime * ANIM_SPEED;
+            transform.localPosition = Vector3.Lerp(pos, Vector3.zero, lerpValue);
+            transform.localScale = Vector3.Lerp(scale, Vector3.zero, lerpValue);
+            yield return null;
+        }
+        BookScript.openned = false;
 
         currentPage.SetActive(false);
         gameObject.SetActive(false);
         currentPageID = -1;
         currentPage = null;
-        open = false;
 
         buttonNext.SetActive(false);
         buttonPrevious.SetActive(false);

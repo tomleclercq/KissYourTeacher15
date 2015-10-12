@@ -3,24 +3,28 @@ using System.Collections;
 
 public class Animals : MonoBehaviour 
 {
-	Vector3 mousePos;
-
+	Vector3 mousePos = Vector2.zero;
+	public Camera myCamera;
+	//RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.up*0.1f);
 
 	void FixedUpdate () 
 	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			//mousePos = myCamera.ScreenToWorldPoint(Input.mousePosition);
-			RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.up*0.1f);
-			//Debug.DrawRay(mousePos, Vector2.up*0.1f, Color.green);
-            foreach (LanguageTranslaterScript lts in GetComponentsInChildren<LanguageTranslaterScript>())
+        if (Input.GetMouseButtonDown(0))
+        {
+            mousePos = myCamera.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.up * 0.1f);
+            //Debug.DrawRay(mousePos, Vector2.up*0.1f, Color.green);
+            if (hit.collider != null)
             {
-                if (lts.jsonKey.Contains(hit.collider.name.ToLower()))
+                foreach (LanguageTranslaterScript lts in GetComponentsInChildren<LanguageTranslaterScript>())
                 {
-                    lts.PlaySound();
+                    if (lts.jsonKey.Contains(hit.collider.tag.ToLower()))
+                    {
+                        lts.PlaySound();
+                    }
                 }
             }
-		}
+        }
 	}
 
 

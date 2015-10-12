@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera : MonoBehaviour 
+public class CameraFollow : MonoBehaviour 
 {
 
-	private Transform target;
-
-	void Start () 
-	{
-		target = GameObject.FindGameObjectWithTag ("Player").transform;
-	}
+	public Transform target;
 
 	void Update () 
 	{

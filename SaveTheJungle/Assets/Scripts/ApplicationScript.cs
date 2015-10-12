@@ -65,6 +65,7 @@ public class ApplicationScript : MonoBehaviour
 
     void Update ()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
@@ -73,6 +74,8 @@ public class ApplicationScript : MonoBehaviour
             UpdateTextTranslaters();
             previousLanguage = currentLanguage;
         }
+		if (Input.GetKeyDown( KeyCode.L ))
+			SwitchLanguage( true );
         /*if( Input.GetKeyDown( KeyCode.Z ) )
         {
             Debug.Log("Add to collection");
@@ -105,14 +108,15 @@ public class ApplicationScript : MonoBehaviour
         yield return new WaitForSeconds( 0.1f ) ;
         switchingLanguage = false;
     }
-    
+	//public quickstuff animalSetup;
     private void UpdateTextTranslaters()
     {
         if (textsRoot != null )
         foreach (GameObject go in textsRoot)
-            foreach (LanguageTranslaterScript ts in go.GetComponentsInChildren<LanguageTranslaterScript>())
+            foreach (LanguageTranslaterScript ts in go.GetComponentsInChildren<LanguageTranslaterScript>(true) )
             {
                 ts.Init();
             }
+		//animalSetup.SetLittleChild (false);
     }
 }

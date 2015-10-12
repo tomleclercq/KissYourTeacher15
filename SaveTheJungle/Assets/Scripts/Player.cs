@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		float h = Input.GetAxis ("Horizontal");    //-----Movement-----\\
+		 //-----Movement-----\\
 		if (Input.GetAxis ("Horizontal") < -0.1f)
 		{
 			rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
@@ -44,8 +44,7 @@ public class Player : MonoBehaviour
 		{
 			rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 		}
-		
-		float v = Input.GetAxis ("Vertical");
+
 		if (Input.GetAxis ("Vertical") < -0.1f)
 		{
 			rb2d.velocity = new Vector2(rb2d.velocity.x, -speed);
