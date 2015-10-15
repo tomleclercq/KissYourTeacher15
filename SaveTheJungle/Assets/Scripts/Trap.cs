@@ -9,11 +9,6 @@ public class Trap : MonoBehaviour {
 
 	private GameObject clueInstance = null;
 
-    void Start()
-    {
-        book = ApplicationScript.current.Book;
-    }
-
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "Player"){
 			if((requiredTool == ToolIndex.hand) || (other.GetComponent<Player>().HasTool(requiredTool))){
@@ -22,7 +17,7 @@ public class Trap : MonoBehaviour {
 					child.GetComponent<SpriteRenderer>().enabled = true;
 					child.GetComponentInChildren<MeshRenderer>().enabled = true;
 				}
-				book.GetComponent<BookScript>().AddNewCollection( GetComponentInChildren<LanguageTranslaterScript>().jsonKey );
+                StartCoroutine(OpenBookInAfew(0.75f));
 
 			}else if (cluePrefab != null && clueInstance == null){
 				clueInstance = Instantiate(cluePrefab, transform.position, Quaternion.identity) as GameObject;
@@ -34,7 +29,7 @@ public class Trap : MonoBehaviour {
 	IEnumerator OpenBookInAfew( float _second)
 	{
 		yield return new WaitForSeconds(_second);
-			book.GetComponent<BookScript>().AddNewCollection( GetComponentInChildren<LanguageTranslaterScript>().jsonKey );
+        ApplicationScript.current.UIRoot.Book.GetComponent<BookScript>().AddNewCollection(GetComponentInChildren<LanguageTranslaterScript>().jsonKey);
 		
 	}
 

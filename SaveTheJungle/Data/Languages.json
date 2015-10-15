@@ -192,7 +192,7 @@
 			"especies":"Pingüino",
 			"class":"Aves",
 			"characteristics":"Pajaro de mar que no puede volar",
-			"food":"Frutas, hierbasypeces",
+			"food":"Frutas, hierbas y peces",
 			"habitat":"Hemisferio sur"
 		  }
 		}
@@ -204,7 +204,7 @@
 			"especies":"Ostrich",
 			"class":"Birds",
 			"characteristics":"It's a huge fast bird",
-			"food":"seeds, shrubs, grass",
+			"food":"shrubs, seeds, grass",
 			"habitat":"Africa"
 		  }
 		},
@@ -213,8 +213,8 @@
 		  "Data":{
 			"especies":"Autruche",
 			"class":"Oiseaux",
-			"characteristics":"C'est une énorme oiseau rapide",
-			"food":"graines, arbustes, del'herbe",
+			"characteristics":"C'est une grand oiseau coureur",
+			"food":"arbustes, graines, herbe",
 			"habitat":"Afrique"
 		  }
 		},
@@ -224,7 +224,7 @@
 			"especies":"Avestruz",
 			"class":"Aves",
 			"characteristics":"Es un ave grande y rapida",
-			"food":"semillas, arbustos, hierba",
+			"food":"arbustos, semillas, hierba",
 			"habitat":"Africa"
 		  }
 		}
@@ -334,6 +334,7 @@
         "play":"Play",
         "language":"English",
         "credit":"Credits",
+        "exit":"Exit",
         "bear":"Bear",
         "zebra":"Zebra",
         "orangutan":"Orangutan",
@@ -352,6 +353,7 @@
         "play":"Jouer",
         "language":"Français",
         "credit":"Crédits",
+		"exit":"Quitter",
         "bear":"Ours",
         "zebra":"Zèbre",
         "orangutan":"Orang-outan",
@@ -370,6 +372,7 @@
         "play":"Jugar",
         "language":"Español",
         "credit":"Créditos",
+        "exit":"[ES]Quitter",
         "bear":"Oso",
         "zebra":"Zebra",
         "orangutan":"Orangutan",

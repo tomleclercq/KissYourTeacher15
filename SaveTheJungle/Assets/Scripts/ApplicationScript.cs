@@ -29,10 +29,7 @@ public class ApplicationScript : MonoBehaviour
     public Languages currentLanguage;
     public GameObject[] textsRoot;
     private Languages previousLanguage;
-
-    public GameObject Menu;
-    public GameObject Book;
-    public GameObject UI;
+    public UIScript UIRoot;
     [HideInInspector]
     public string animalName;
 
@@ -41,12 +38,10 @@ public class ApplicationScript : MonoBehaviour
         string file = File.ReadAllText( getDataFolder()+"Languages.json");
         jsonLanguage = JsonMapper.ToObject(file);
 
+        UIRoot.SetMenuUI();
+
         UpdateTextTranslaters();
         previousLanguage = currentLanguage;
-
-        if (Menu != null) Menu.SetActive(true);
-        if (Book != null) Book.SetActive(false);
-        if (UI != null)UI.SetActive(false);
     }
 
     public void LaunchGame()
@@ -54,43 +49,51 @@ public class ApplicationScript : MonoBehaviour
         StartCoroutine(StartGame());
     }
 
+    public void LaunchCredits()
+    {
+        StartCoroutine(ShowCredits());
+    }
+
+    public void ExitGame()
+    {
+        StartCoroutine(QuitGame());
+    }
+
+    IEnumerator QuitGame()
+    {
+        yield return StartCoroutine( UIRoot.DarkenScreen() );
+        yield return StartCoroutine(UIRoot.StartCreditScroll());
+        Application.Quit();
+    }
+
     IEnumerator StartGame()
     {
         yield return new WaitForSeconds(0.75f);
-        if( Menu != null )Menu.SetActive(false);
-        if (Book != null) Book.SetActive(false);
-        if (UI != null) UI.SetActive(true);
-        yield return null;
+        UIRoot.SetGameUI();
+    }
+
+    IEnumerator ShowCredits()
+    {
+        yield return new WaitForSeconds(0.75f);
+        yield return StartCoroutine(UIRoot.DarkenScreen());
+        yield return StartCoroutine(UIRoot.StartCreditScroll());
+        yield return StartCoroutine(UIRoot.LightenScreen());
+        UIRoot.SetMenuUI();
     }
 
     void Update ()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+            ExitGame();
 
         if( currentLanguage != previousLanguage )
         {
             UpdateTextTranslaters();
             previousLanguage = currentLanguage;
         }
-		if (Input.GetKeyDown( KeyCode.L ))
-			SwitchLanguage( true );
-        /*if( Input.GetKeyDown( KeyCode.Z ) )
-        {
-            Debug.Log("Add to collection");
-            Book.GetComponent<BookScript>().AddNewCollection("zebra");
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Add to collection");
-            Book.GetComponent<BookScript>().AddNewCollection("lion");
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("Add to collection");
-            Book.GetComponent<BookScript>().AddNewCollection("snake");
-        }*/
+        if (Input.GetKeyDown( KeyCode.L ))
+            SwitchLanguage( true );
     }
     public void SwitchLanguage( bool more)
     {
