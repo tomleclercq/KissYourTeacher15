@@ -13,10 +13,14 @@ public class Trap : MonoBehaviour {
 		if(other.tag == "Player"){
 			if((requiredTool == ToolIndex.hand) || (other.GetComponent<Player>().HasTool(requiredTool))){
 				GetComponent<SpriteRenderer>().enabled = false;
-				foreach(Transform child in transform){
-					child.GetComponent<SpriteRenderer>().enabled = true;
-					child.GetComponentInChildren<MeshRenderer>().enabled = true;
-				}
+                foreach (Transform child in GetComponentsInChildren<Transform>(true))
+                {
+                    if (child != transform)
+                    {
+                        if (child.GetComponent<Renderer>() != null)
+                        child.GetComponent<Renderer>().enabled = true;
+                    }
+                }
                 StartCoroutine(OpenBookInAfew(0.75f));
 
 			}else if (cluePrefab != null && clueInstance == null){

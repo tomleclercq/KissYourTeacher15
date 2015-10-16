@@ -30,7 +30,7 @@ public class BookScript : MonoBehaviour
     [HideInInspector]
     public List<int> knownPageIds = new List<int>();
 
-    void Start()
+    public void Init()
     {
         pos = transform.localPosition;
         scale = transform.localScale;
@@ -47,7 +47,6 @@ public class BookScript : MonoBehaviour
 
     public void AddNewCollection(LanguageTranslaterScript _animal)
     {
-
         gameObject.SetActive(true);
         ApplicationScript.current.animalName = _animal.jsonKey;
 

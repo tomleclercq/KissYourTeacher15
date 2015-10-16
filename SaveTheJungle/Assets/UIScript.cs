@@ -26,9 +26,14 @@ public class UIScript : MonoBehaviour {
     public void SetGameUI()
     {
         if( Menu != null )Menu.SetActive(false);
-        if (Book != null) Book.SetActive(false);
+        if (Book != null)
+        {
+            Book.SetActive(false);
+            Book.GetComponent<BookScript>().Init();        
+        }
         if (UI != null) UI.SetActive(true);
         if (Credit != null) Credit.SetActive(false);
+
     }
 
     public void SetCreditUI()

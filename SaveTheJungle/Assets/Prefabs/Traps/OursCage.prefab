@@ -18,7 +18,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &125616
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -97,8 +97,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 497726}
+  m_Children: []
   m_Father: {fileID: 420702}
   m_RootOrder: 0
 --- !u!4 &420702
@@ -112,6 +111,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 406266}
+  - {fileID: 497726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &450226
@@ -146,12 +146,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.25, y: -.600000024, z: 0}
+  m_LocalPosition: {x: -.25, y: -.600000381, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 450226}
-  m_Father: {fileID: 406266}
-  m_RootOrder: 0
+  m_Father: {fileID: 420702}
+  m_RootOrder: 1
 --- !u!23 &2329630
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -359,7 +359,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134590}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 430c500049f08524a9f01b28cc5781d2, type: 2}
   m_CullingMode: 0
@@ -394,7 +394,7 @@ TextMesh:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156470}
   m_Text: Hello World
-  m_OffsetZ: 0
+  m_OffsetZ: -1
   m_CharacterSize: .280000001
   m_LineSpacing: 1
   m_Anchor: 4
@@ -456,7 +456,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dfcb300f295659e42b779337097e4fef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21239932
