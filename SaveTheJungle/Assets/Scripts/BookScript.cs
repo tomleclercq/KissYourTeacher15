@@ -141,6 +141,8 @@ public class BookScript : MonoBehaviour
         {
             Time.timeScale = 1f;
             StartCoroutine(closeAnimation());
+            if (ApplicationScript.current.requestedAnimals >= knownPageIds.Count)
+                ApplicationScript.current.questAccompleted = true;
         }
     }
 

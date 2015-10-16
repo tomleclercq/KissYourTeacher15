@@ -23,24 +23,38 @@ public class ApplicationScript : MonoBehaviour
         if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
         return folder;
     }
-    [HideInInspector]
-    public bool switchingLanguage = false;
-    public JsonData jsonLanguage;
-    public Languages currentLanguage;
-    public GameObject[] textsRoot;
-    private Languages previousLanguage;
+
     public UIScript UIRoot;
+    public GameObject player;
+    public GameObject endPoint;
+    public int requestedAnimals;
+    public GameObject[] textsRoot;
+    public Languages currentLanguage;
+    private Languages previousLanguage;
+
+    [HideInInspector]
+    public bool questAccompleted;
+    [HideInInspector]
+    public JsonData jsonLanguage;
     [HideInInspector]
     public string animalName;
+    [HideInInspector]
+    public bool switchingLanguage = false;
 
     void Start ()
     {
         string file = File.ReadAllText( getDataFolder()+"Languages.json");
         jsonLanguage = JsonMapper.ToObject(file);
-        if( UIRoot != null )
+        
+        if (UIRoot != null)
             UIRoot.SetMenuUI();
-
         UpdateTextTranslaters();
+
+        if (Application.loadedLevel != 0)
+        {
+            if (UIRoot != null)
+                UIRoot.SetGameUI();
+        }
         previousLanguage = currentLanguage;
     }
 
@@ -74,7 +88,8 @@ public class ApplicationScript : MonoBehaviour
 
     IEnumerator ShowCredits()
     {
-        yield return new WaitForSeconds(0.75f);
+        Debug.Log("credits");
+       // yield return new WaitForSeconds(0.75f);
         yield return StartCoroutine(UIRoot.DarkenScreen());
         yield return StartCoroutine(UIRoot.StartCreditScroll());
         yield return StartCoroutine(UIRoot.LightenScreen());
@@ -86,14 +101,34 @@ public class ApplicationScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
             ExitGame();
+        if (Input.GetKeyDown(KeyCode.Space))
+            if (Application.loadedLevel + 1 < Application.levelCount)
+                Application.LoadLevel(Application.loadedLevel + 1);
+            else
+            {
+                LaunchCredits();
+            }
 
         if( currentLanguage != previousLanguage )
         {
             UpdateTextTranslaters();
             previousLanguage = currentLanguage;
         }
-        if (Input.GetKeyDown( KeyCode.L ))
-            SwitchLanguage( true );
+
+        if( endPoint != null && questAccompleted && player != null )
+        {
+            float dist = Vector3.Distance(player.transform.position, endPoint.transform.position);
+            if( dist < 2 )
+            {
+                Debug.Log("Near tree");
+                if (Application.loadedLevel + 1 < Application.levelCount)
+                    Application.LoadLevel(Application.loadedLevel + 1);
+                else
+                {
+                    LaunchCredits();
+                }
+            }
+        }
     }
     public void SwitchLanguage( bool more)
     {
