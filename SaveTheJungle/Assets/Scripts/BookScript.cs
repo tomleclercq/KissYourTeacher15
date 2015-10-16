@@ -24,6 +24,8 @@ public class BookScript : MonoBehaviour
     public GameObject buttonQuit;
     public GameObject textRoot;
 
+    public Dictionary<int, LanguageTranslaterScript> mappingTable = new Dictionary<int,LanguageTranslaterScript>(); 
+
     public List<GameObject> pages = new List<GameObject>();
     [HideInInspector]
     public List<int> knownPageIds = new List<int>();
@@ -43,11 +45,11 @@ public class BookScript : MonoBehaviour
         buttonQuit.SetActive(false);
     }
 
-    public void AddNewCollection(string _animal)
+    public void AddNewCollection(LanguageTranslaterScript _animal)
     {
 
         gameObject.SetActive(true);
-        ApplicationScript.current.animalName = _animal;
+        ApplicationScript.current.animalName = _animal.jsonKey;
 
         currentPage = null;
         currentPageID = -1;
@@ -60,10 +62,19 @@ public class BookScript : MonoBehaviour
         {
             currentPageID = pages.IndexOf(currentPage);
             if (!knownPageIds.Contains(currentPageID))
+            {
                 knownPageIds.Add(currentPageID);
-            currentKnownPageID = knownPageIds.Count-1;
-            OpenTHEBook();
+                mappingTable.Add(currentPageID, _animal);
+                currentKnownPageID = knownPageIds.Count - 1;
+                OpenTHEBook();
+            }
         }
+    }
+
+    public void RepeatAnimalName()
+    {
+        if( currentPageID >= 0 )
+            mappingTable[currentPageID].PlaySound();
     }
 
     public void OpenTHEBook()

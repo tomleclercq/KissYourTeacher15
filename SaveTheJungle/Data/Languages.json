@@ -76,7 +76,7 @@
 			"especies":"Orangutan",
 			"class":"Mammals",
 			"characteristics":"It's an animal who lives in the threes",
-			"food":"Fruits, herbs",
+			"food":"Herbs & Fruits",
 			"habitat":"Sumatra and Bomeo's forest"
 		  }
 		},
@@ -85,8 +85,8 @@
 		  "Data":{
 			"especies":"Orang-utan",
 			"class":"Mammifères",
-			"characteristics":"c'est un animal qui habite dans les arbres",
-			"food":"Fruits, herbes",
+			"characteristics":"C'est un animal qui habite dans les arbres",
+			"food":"Herbes et fruits",
 			"habitat":"Fôrets de Bomeo et Sumatra"
 		  }
 		},
@@ -95,8 +95,8 @@
 		  "Data":{
 			"especies":"Orangutan",
 			"class":"Mamîferos",
-			"characteristics":"es un animal que vive en los arboles",
-			"food":"Frutas,hierbas",
+			"characteristics":"Es un animal que vive en los arboles",
+			"food":"Hierbas y frutas",
 			"habitat":"Selvas de Sumatra y Bomeo"
 		  }
 		}

@@ -20,6 +20,7 @@ public class Animals : MonoBehaviour
                 {
                     if (lts.jsonKey.Contains(hit.collider.tag.ToLower()))
                     {
+                        Debug.Log("HIT " + hit.collider.tag);
                         lts.PlaySound();
                     }
                 }

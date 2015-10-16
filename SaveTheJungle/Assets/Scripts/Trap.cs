@@ -29,7 +29,7 @@ public class Trap : MonoBehaviour {
 	IEnumerator OpenBookInAfew( float _second)
 	{
 		yield return new WaitForSeconds(_second);
-        ApplicationScript.current.UIRoot.Book.GetComponent<BookScript>().AddNewCollection(GetComponentInChildren<LanguageTranslaterScript>().jsonKey);
+        ApplicationScript.current.UIRoot.Book.GetComponent<BookScript>().AddNewCollection(GetComponentInChildren<LanguageTranslaterScript>());
 		
 	}
 

@@ -37,8 +37,8 @@ public class ApplicationScript : MonoBehaviour
     {
         string file = File.ReadAllText( getDataFolder()+"Languages.json");
         jsonLanguage = JsonMapper.ToObject(file);
-
-        UIRoot.SetMenuUI();
+        if( UIRoot != null )
+            UIRoot.SetMenuUI();
 
         UpdateTextTranslaters();
         previousLanguage = currentLanguage;
@@ -111,7 +111,7 @@ public class ApplicationScript : MonoBehaviour
         yield return new WaitForSeconds( 0.1f ) ;
         switchingLanguage = false;
     }
-	//public quickstuff animalSetup;
+
     private void UpdateTextTranslaters()
     {
         if (textsRoot != null )
@@ -120,6 +120,5 @@ public class ApplicationScript : MonoBehaviour
             {
                 ts.Init();
             }
-		//animalSetup.SetLittleChild (false);
     }
 }
