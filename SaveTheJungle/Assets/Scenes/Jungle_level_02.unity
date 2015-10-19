@@ -6583,16 +6583,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436846, guid: e98a6cb85e5c589488390d0907680822, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11489226, guid: e98a6cb85e5c589488390d0907680822, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1569847376}
     - target: {fileID: 11489226, guid: e98a6cb85e5c589488390d0907680822, type: 2}
       propertyPath: textsRoot.Array.data[1]
       value: 
       objectReference: {fileID: 264591535}
-    - target: {fileID: 11462596, guid: e98a6cb85e5c589488390d0907680822, type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1886841073}
     - target: {fileID: 22449696, guid: e98a6cb85e5c589488390d0907680822, type: 2}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -6952,6 +6952,14 @@ Prefab:
     - target: {fileID: 22411870, guid: e98a6cb85e5c589488390d0907680822, type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446070, guid: e98a6cb85e5c589488390d0907680822, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 27.5300007
+      objectReference: {fileID: 0}
+    - target: {fileID: 446070, guid: e98a6cb85e5c589488390d0907680822, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e98a6cb85e5c589488390d0907680822, type: 2}
@@ -8674,7 +8682,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &522539244
 GameObject:
   m_ObjectHideFlags: 0
@@ -21894,6 +21902,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c00bb9f67661d4d93f0d1733c92af4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1569847376 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 104098, guid: e4c00bb9f67661d4d93f0d1733c92af4, type: 2}
+  m_PrefabInternal: {fileID: 1569847375}
 --- !u!1 &1569979242
 GameObject:
   m_ObjectHideFlags: 0

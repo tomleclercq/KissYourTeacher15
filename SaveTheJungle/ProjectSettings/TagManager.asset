@@ -15,6 +15,7 @@ TagManager:
   - Turtle
   - Zebra
   - Animal
+  - End
   layers:
   - Default
   - TransparentFX

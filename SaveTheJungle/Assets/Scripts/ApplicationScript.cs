@@ -75,8 +75,7 @@ public class ApplicationScript : MonoBehaviour
 
     IEnumerator QuitGame()
     {
-        yield return StartCoroutine( UIRoot.DarkenScreen() );
-        yield return StartCoroutine(UIRoot.StartCreditScroll());
+        yield return StartCoroutine(UIRoot.StartCredit());
         Application.Quit();
     }
 
@@ -89,10 +88,8 @@ public class ApplicationScript : MonoBehaviour
     IEnumerator ShowCredits()
     {
         Debug.Log("credits");
-       // yield return new WaitForSeconds(0.75f);
-        yield return StartCoroutine(UIRoot.DarkenScreen());
-        yield return StartCoroutine(UIRoot.StartCreditScroll());
-        yield return StartCoroutine(UIRoot.LightenScreen());
+        yield return StartCoroutine(UIRoot.StartCredit());
+        yield return StartCoroutine(UIRoot.LightenCreditScreen());
         UIRoot.SetMenuUI();
     }
 
@@ -117,19 +114,25 @@ public class ApplicationScript : MonoBehaviour
 
         if( endPoint != null && questAccompleted && player != null )
         {
-            float dist = Vector3.Distance(player.transform.position, endPoint.transform.position);
-            if( dist < 2 )
-            {
-                Debug.Log("Near tree");
-                if (Application.loadedLevel + 1 < Application.levelCount)
-                    Application.LoadLevel(Application.loadedLevel + 1);
-                else
-                {
-                    LaunchCredits();
-                }
-            }
+            float dst = Vector3.Distance(endPoint.transform.position, player.transform.position);
+            if (dst < 0.5f)
+		    {
+			    Debug.Log("Ending");
+                    EndLevel();
+		    }
         }
     }
+
+    public void EndLevel()
+    {
+        if (Application.loadedLevel + 1 < Application.levelCount)
+            Application.LoadLevel(Application.loadedLevel + 1);
+        else
+        {
+            LaunchCredits();
+        }
+    }
+
     public void SwitchLanguage( bool more)
     {
         //Debug.Log("switchingLanguage");

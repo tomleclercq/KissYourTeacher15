@@ -49,7 +49,7 @@ GameObject:
   - 95: {fileID: 9500654}
   m_Layer: 0
   m_Name: OursCage
-  m_TagString: Untagged
+  m_TagString: Bear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

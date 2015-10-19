@@ -130,4 +130,5 @@ public class Player : MonoBehaviour
 	public void AddTool(ToolIndex toolIndex){
 		inventory [(int)toolIndex] = true;
 	}
+
 }
