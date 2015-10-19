@@ -31,7 +31,7 @@ public class LanguageTranslaterScript : MonoBehaviour
             if (displayTextMesh != null)
                 displayTextMesh.text = (string)JsonUtil.loadJsonData<string>(languageData, jsonKey);
         }
-        if(!onBookData)
+        if (!onBookData && gameObject.activeInHierarchy)
             StartCoroutine(LoadSound(jsonKey));
     }
 

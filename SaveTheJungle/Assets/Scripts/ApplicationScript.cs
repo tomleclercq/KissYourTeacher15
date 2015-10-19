@@ -32,7 +32,7 @@ public class ApplicationScript : MonoBehaviour
     public Languages currentLanguage;
     private Languages previousLanguage;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool questAccompleted;
     [HideInInspector]
     public JsonData jsonLanguage;

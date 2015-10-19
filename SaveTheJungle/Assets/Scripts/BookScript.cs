@@ -44,23 +44,26 @@ public class BookScript : MonoBehaviour
         buttonPrevious.SetActive(false);
         buttonQuit.SetActive(false);
 
-        /*if( Application.loadedLevel == 0 )
+        if( Application.loadedLevel == 0 )
         {
             for( int i = 0 ; i < pages.Count ; i++ )
-               PlayerPrefs.DeleteKey(string.Format("{0}_{1:00}","KnownPagesID"+i));
+                if (PlayerPrefs.HasKey(string.Format("{0}_{1:00}", "KnownPagesID",i)))
+                    PlayerPrefs.DeleteKey(string.Format("{0}_{1:00}", "KnownPagesID",i));
         }
         else
         {
             for (int i = 0; i < pages.Count; i++)
-            if( PlayerPrefs.HasKey(string.Format("{0}_{1:00}","KnownPagesID"+i)) )
+            if( PlayerPrefs.HasKey(string.Format("{0}_{1:00}","KnownPagesID",i)) )
             {
-                knownPageIds.Add(currentPageID);
-                //mappingTable.Add(currentPageID, _animal);
+                int id = PlayerPrefs.GetInt(string.Format("{0}_{1:00}","KnownPagesID",i));
+                AddNewCollection(AnimalCollectionScript.current.animalCollection[id], false);
             }
-        }*/
+        }
+        ApplicationScript.current.requestedAnimals += knownPageIds.Count;
+        buttonOpen.SetActive(!(knownPageIds.Count > 0));
     }
 
-    public void AddNewCollection(LanguageTranslaterScript _animal)
+    public void AddNewCollection(LanguageTranslaterScript _animal, bool openBook =true)
     {
         gameObject.SetActive(true);
         ApplicationScript.current.animalName = _animal.jsonKey;
@@ -80,9 +83,11 @@ public class BookScript : MonoBehaviour
                 knownPageIds.Add(currentPageID);
                 mappingTable.Add(currentPageID, _animal);
                 currentKnownPageID = knownPageIds.Count - 1;
-                OpenTHEBook();
+                PlayerPrefs.SetInt(string.Format("{0}_{1:00}", "KnownPagesID",currentKnownPageID), currentPageID);
+                if (openBook) OpenTHEBook();
             }
         }
+
     }
 
     public void RepeatAnimalName()
@@ -156,8 +161,7 @@ public class BookScript : MonoBehaviour
         {
             Time.timeScale = 1f;
             StartCoroutine(closeAnimation());
-            if (ApplicationScript.current.requestedAnimals >= knownPageIds.Count)
-                ApplicationScript.current.questAccompleted = true;
+            ApplicationScript.current.questAccompleted = ApplicationScript.current.requestedAnimals >= knownPageIds.Count;
         }
     }
 
