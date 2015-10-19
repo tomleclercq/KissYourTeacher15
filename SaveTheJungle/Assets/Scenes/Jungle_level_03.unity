@@ -17906,6 +17906,10 @@ Prefab:
       propertyPath: endPoint
       value: 
       objectReference: {fileID: 1602709503}
+    - target: {fileID: 113592, guid: e98a6cb85e5c589488390d0907680822, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e98a6cb85e5c589488390d0907680822, type: 2}
   m_IsPrefabParent: 0
