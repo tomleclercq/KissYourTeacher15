@@ -84,7 +84,7 @@ public class ApplicationScript : MonoBehaviour
 
     IEnumerator QuitGame()
     {
-        yield return StartCoroutine(UIRoot.StartCredit());
+        yield return new WaitForSeconds(0.75f);
         Application.Quit();
     }
 

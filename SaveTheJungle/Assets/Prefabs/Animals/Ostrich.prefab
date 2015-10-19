@@ -12,8 +12,8 @@ GameObject:
   - 95: {fileID: 9556536}
   - 60: {fileID: 6002460}
   - 50: {fileID: 5079824}
-  - 114: {fileID: 11407230}
   - 61: {fileID: 6100442}
+  - 114: {fileID: 11486984}
   m_Layer: 0
   m_Name: Ostrich
   m_TagString: Untagged
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.1699982, y: 36.8400002, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 460374}
@@ -328,7 +328,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &11407230
+--- !u!114 &11486984
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -336,15 +336,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 128094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b558ba15bb9b9459e3ab5cf703f2c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ef3cb8ef4975a74ea9da8da0344ab0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  free: 1
+  free: 0
   speed: 5
   angle: 0
   timer: 0
   maxTimer: 2
-  scale: -1
+  scale: 1
 --- !u!114 &11492694
 MonoBehaviour:
   m_ObjectHideFlags: 1

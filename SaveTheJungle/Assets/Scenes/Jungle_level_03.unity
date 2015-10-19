@@ -3966,6 +3966,10 @@ Prefab:
       propertyPath: m_Name
       value: ostrichPiege
       objectReference: {fileID: 0}
+    - target: {fileID: 2313330, guid: 38d907d3d9824644bbea92ef3367d48c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38d907d3d9824644bbea92ef3367d48c, type: 2}
   m_IsPrefabParent: 0
@@ -21437,54 +21441,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f73e751a01f66fe40b7b28a6a6cf68f4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1233948771 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 169962, guid: 38d907d3d9824644bbea92ef3367d48c, type: 2}
-  m_PrefabInternal: {fileID: 244821011}
---- !u!114 &1233948773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1233948771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef3cb8ef4975a74ea9da8da0344ab0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  free: 0
-  speed: 5
-  angle: 0
-  timer: 0
-  maxTimer: 2
-  scale: 1
---- !u!50 &1233948777
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1233948771}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1233948778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1233948771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7c241ffb93479949aa7ab18ea0f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1235016026
 GameObject:
   m_ObjectHideFlags: 0

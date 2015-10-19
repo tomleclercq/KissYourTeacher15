@@ -43,8 +43,8 @@ public class BookScript : MonoBehaviour
         buttonNext.SetActive(false);
         buttonPrevious.SetActive(false);
         buttonQuit.SetActive(false);
-        /*
-        if( Application.loadedLevel == 0 )
+
+        /*if( Application.loadedLevel == 0 )
         {
             for( int i = 0 ; i < pages.Count ; i++ )
                PlayerPrefs.DeleteKey(string.Format("{0}_{1:00}","KnownPagesID"+i));
@@ -54,11 +54,10 @@ public class BookScript : MonoBehaviour
             for (int i = 0; i < pages.Count; i++)
             if( PlayerPrefs.HasKey(string.Format("{0}_{1:00}","KnownPagesID"+i)) )
             {
-
+                knownPageIds.Add(currentPageID);
+                //mappingTable.Add(currentPageID, _animal);
             }
-        }
-        */
-
+        }*/
     }
 
     public void AddNewCollection(LanguageTranslaterScript _animal)
