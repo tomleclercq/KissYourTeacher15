@@ -32,10 +32,10 @@ public class LanguageTranslaterScript : MonoBehaviour
                 displayTextMesh.text = (string)JsonUtil.loadJsonData<string>(languageData, jsonKey);
         }
         if(!onBookData)
-            StartCoroutine(LoadSound());
+            StartCoroutine(LoadSound(jsonKey));
     }
 
-    private IEnumerator LoadSound()
+    private IEnumerator LoadSound( string _animal)
     {
         if (audioEmitter == null) audioEmitter = GetComponentInChildren<AudioSource>();
         if (audioEmitter != null)
@@ -43,7 +43,7 @@ public class LanguageTranslaterScript : MonoBehaviour
             while (audioEmitter.isPlaying)
                 yield return null;
 
-            string fileName = ApplicationScript.getDataFolder() + "audio/" + jsonKey + "_" + (int)ApplicationScript.current.currentLanguage + ".wav";
+            string fileName = ApplicationScript.getDataFolder() + "audio/" + _animal + "_" + (int)ApplicationScript.current.currentLanguage + ".wav";
             WWW www = new WWW("file://" + fileName);
 
             AudioClip clip =  www.GetAudioClip(false);
@@ -72,7 +72,5 @@ public class LanguageTranslaterScript : MonoBehaviour
        // Debug.Log("Play sound " + );
         audioEmitter.PlayOneShot(audioEmitter.clip);
         //Debug.Log("Play sound "+audioEmitter.isPlaying);
-
     }
-
 }

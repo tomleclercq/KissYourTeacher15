@@ -48,18 +48,27 @@ public class ApplicationScript : MonoBehaviour
         
         if (UIRoot != null)
             UIRoot.SetMenuUI();
-        UpdateTextTranslaters();
+
 
         if (Application.loadedLevel != 0)
         {
+            if(PlayerPrefs.HasKey("LanguageID"))
+                currentLanguage = (Languages)PlayerPrefs.GetInt("LanguageID");
+            else
+                PlayerPrefs.SetInt("LanguageID", (int)currentLanguage);
+
+            StartCoroutine(UIRoot.LightenScreen());
             if (UIRoot != null)
                 UIRoot.SetGameUI();
         }
+
+        UpdateTextTranslaters();
         previousLanguage = currentLanguage;
     }
 
     public void LaunchGame()
     {
+        PlayerPrefs.SetInt("LanguageID", (int)currentLanguage);
         StartCoroutine(StartGame());
     }
 
@@ -87,9 +96,7 @@ public class ApplicationScript : MonoBehaviour
 
     IEnumerator ShowCredits()
     {
-        Debug.Log("credits");
         yield return StartCoroutine(UIRoot.StartCredit());
-        yield return StartCoroutine(UIRoot.LightenCreditScreen());
         UIRoot.SetMenuUI();
     }
 
@@ -115,18 +122,18 @@ public class ApplicationScript : MonoBehaviour
         if( endPoint != null && questAccompleted && player != null )
         {
             float dst = Vector3.Distance(endPoint.transform.position, player.transform.position);
-            if (dst < 0.5f)
-		    {
-			    Debug.Log("Ending");
-                    EndLevel();
-		    }
+            if (dst < 1f)
+                StartCoroutine(EndLevel());
         }
     }
 
-    public void EndLevel()
+    public IEnumerator EndLevel()
     {
         if (Application.loadedLevel + 1 < Application.levelCount)
+        {
+            yield return StartCoroutine(UIRoot.DarkenScreen());
             Application.LoadLevel(Application.loadedLevel + 1);
+        }
         else
         {
             LaunchCredits();

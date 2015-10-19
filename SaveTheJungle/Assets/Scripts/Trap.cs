@@ -19,6 +19,8 @@ public class Trap : MonoBehaviour {
                     {
                         if (child.GetComponent<Renderer>() != null)
                         child.GetComponent<Renderer>().enabled = true;
+                        if(child.GetComponent<AnimalsMovement>() != null )
+                            child.GetComponent<AnimalsMovement>().free = true;
                     }
                 }
                 StartCoroutine(OpenBookInAfew(0.75f));
@@ -42,7 +44,6 @@ public class Trap : MonoBehaviour {
 		    if (clueInstance != null){
 				GameObject.Destroy(clueInstance);
 				clueInstance.transform.localScale = new Vector2 (0,0);
-				print (clueInstance.name);
 			}else{
 				//GetComponent<Animator>().SetTrigger("StopAnim");
 			}
