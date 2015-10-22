@@ -60,7 +60,7 @@ public class BookScript : MonoBehaviour
             }
         }
         ApplicationScript.current.requestedAnimals += knownPageIds.Count;
-        buttonOpen.SetActive(!(knownPageIds.Count > 0));
+        buttonOpen.SetActive(knownPageIds.Count > 0);
     }
 
     public void AddNewCollection(LanguageTranslaterScript _animal, bool openBook =true)

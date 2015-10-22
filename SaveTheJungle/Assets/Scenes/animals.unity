@@ -344,12 +344,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3d637a394e8f04db8a87d125576190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchingLanguage: 0
-  currentLanguage: 1
+  UIRoot: {fileID: 0}
+  player: {fileID: 0}
+  endPoint: {fileID: 0}
+  requestedAnimals: 0
   textsRoot:
   - {fileID: 1688596312}
-  UIRoot: {fileID: 0}
+  currentLanguage: 1
+  questAccompleted: 0
   animalName: 
+  switchingLanguage: 0
 --- !u!4 &914631997
 Transform:
   m_ObjectHideFlags: 0
