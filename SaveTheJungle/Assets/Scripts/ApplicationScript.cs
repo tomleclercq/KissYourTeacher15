@@ -69,6 +69,7 @@ public class ApplicationScript : MonoBehaviour
     public void LaunchGame()
     {
         PlayerPrefs.SetInt("LanguageID", (int)currentLanguage);
+	player.GetComponent<Player> ().enabled = true;
         StartCoroutine(StartGame());
     }
 
